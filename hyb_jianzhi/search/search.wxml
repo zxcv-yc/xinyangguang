@@ -1,0 +1,63 @@
+<view class="search-bg">
+    <image class="search-img" src="../images/search.png"></image>
+    <form bindsubmit="subClick">
+        <input bindinput="searchBlur" class="search-inp" name="content" placeholder="搜索" value="{{conB}}"></input>
+        <button class="search-btn" formType="submit" style="font-size:30rpx;">搜索</button>
+    </form>
+</view>
+<view class="hot-search" wx:if="{{conB==''}}">
+    <text class="hot-title">热门搜索</text>
+    <view bindtap="hotClick" class="search-title" data-h_con="{{item.title}}" wx:for="{{positionArr1}}" wx:key="unique">{{item.title}}
+    <text>Hot</text>
+    </view>
+</view>
+<view wx:elif="{{conB!=''&&keArr.length==0}}">
+    <my-none none="{{none}}"></my-none>
+    <my-bottom bindtimeJobMore="timeJobMore"></my-bottom>
+</view>
+<view class="content" wx:elif="{{conB!=''&&keArr.length>0}}">
+    <block wx:if="{{keArr.length!=0}}">
+        <view bindtap="timeJobDetailClick" class="bsbb shoucang df bgcf" data-j_id="{{item.f_id}}" wx:for="{{keArr}}" wx:key="unique">
+            <view class="w">
+                <view class="df aic listtitle">
+                    <view class="fs28 c6">{{item.f_name}}
+            <image class="bdr" mode="aspectFill" src="{{item.thumb}}" style="width:40rpx;height:40rpx;margin-left:10rpx;"></image>
+                        <image class="bdr" mode="aspectFill" src="/hyb_jianzhi/images/v.png" style="width:40rpx;height:40rpx;margin-left:10rpx;" wx:if="{{item.hy}}"></image>
+                        <image class="bdr" mode="aspectFill" src="/hyb_jianzhi/images/rz.png" style="width:40rpx;height:40rpx;margin-left:10rpx;"></image>
+                    </view>
+                    <view>
+                        <text class="c fs28">{{item.f_xinzi}}{{item.f_danwei}}</text>
+                    </view>
+                </view>
+                <view class="df fdc fs24 c9 lh1 mt10">
+                    <view class="df">
+                        <image mode="widthFix" src="/hyb_jianzhi/images/position.png" style="width:25rpx;"></image>
+                        <view class="ml10 fw3" wx:if="{{item.dz==null}}">{{item.f_address}}
+              <text class="ml15">{{item.juli}}km</text>
+                        </view>
+                        <view class="ml10 fw3" wx:else>{{item.dz}}
+              <text class="ml15">{{item.juli}}km</text>
+                        </view>
+                    </view>
+                    <view class="df aife mt10 listzhiye">
+                        <image mode="widthFix" src="/hyb_jianzhi/images/data.png" style="width:25rpx;"></image>
+                        <view class="ml10 fw3">{{item.f_gzdate1}}--{{item.f_gzdate2}}</view>
+                    </view>
+                </view>
+                <view class="df jcsb mt15 listzhuangtai">
+                    <view class="df jcsb">
+                        <button class="jianzhitypes" style="margin-right:10rpx;">{{item.f_jianzhistyle}}</button>
+                        <button class="jianzhitypes jiesuan" style="margin-right:10rpx;">{{item['f_jiesuan']}}</button>
+                        <button class="jianzhitypes" hidden="{{item.baoming=='false'}}">已满</button>
+                        <button class="jianzhitypes tuiguan" hidden="{{item.tg==false}}">急招</button>
+                    </view>
+                    <view class="fs24 c6" style="height: 30rpx;">{{item.fatime}}</view>
+                </view>
+            </view>
+        </view>
+        <my-bottom bindtimeJobMore="timeJobMore"></my-bottom>
+    </block>
+    <block wx:else>
+        <my-none none="{{none}}" wx:if="{{a}}"></my-none>
+    </block>
+</view>

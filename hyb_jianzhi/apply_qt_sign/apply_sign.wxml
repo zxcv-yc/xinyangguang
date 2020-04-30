@@ -1,0 +1,21 @@
+<form>
+  <view class="mt20">
+    <view class="fs32 c6 bdb2 bsbb pl30 pr30 pt30 pb30 bgcf">现场照片</view>
+    <view class="df aic jcsa fs32 c6 bdb2 bsbb pl30 pr30 pt30 pb30 bgcf">
+      <image bindtap="choosePhoto1" mode="aspectFill" src="{{obj.xianchang?obj.xianchang:'../images/upload.png'}}" style="width:259rpx;height:173rpx;"></image>
+    </view>
+  </view>
+  <view class="mt20">
+    <view class="fs32 c6 bdb2 bsbb pl30 pr30 pt30 pb30 bgcf">现场自拍</view>
+    <view class="df aic jcsa fs32 c6 bdb2 bsbb pl30 pr30 pt30 pb30 bgcf">
+      <image bindtap="choosePhoto2" mode="aspectFill" src="{{obj.zipai?obj.zipai:'../images/upload.png'}}" style="width:259rpx;height:173rpx;"></image>
+    </view>
+  </view>
+  <view class="mt20">
+    <view class="fs32 c6 bdb2 bsbb pl30 pr30 pt30 pb30 bgcf">我的定位</view>
+    <view class="df aic jcsa fs32 c6 bdb2 bsbb pl30 pr30 pt30 pb30 bgcf">
+      {{address}}
+    </view>
+  </view>
+  <button class="bgc cf fs34 h88 w bdn" disabled="{{disabled}}"  bindtap='submit' >签退</button>
+</form>

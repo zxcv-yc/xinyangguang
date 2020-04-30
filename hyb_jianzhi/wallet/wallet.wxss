@@ -1,0 +1,44 @@
+.my_bg {
+    height: 395rpx;
+}
+
+.my_bg .pa {
+    bottom: 0;
+    left: 0;
+}
+
+.h60 {
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.mt80 {
+    margin-top: 80rpx;
+}
+
+.btn {
+    box-shadow: 2rpx 2rpx 8rpx rgba(255,100,74,0.8) inset,3rpx 3rpx 7rpx 3rpx rgba(180,61,41,0.6);
+}
+
+.w200 {
+    width: 200rpx;
+}
+
+.h80 {
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.bdc {
+    border-color: #ff644a;
+}
+
+.no_data {
+    text-align: center;
+    margin: 20rpx 0;
+}
+
+.no_img {
+    width: 50%;
+    margin: 0 auto;
+}

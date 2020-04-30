@@ -1,0 +1,32 @@
+.liao-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.liao-input {
+    width: 85%;
+    height: 66rpx;
+    background-color: #f5f5f5;
+    border: 2rpx solid #e4e4e4;
+}
+
+.fa-btn {
+    display: inline-block;
+    width: 85rpx;
+    height: 54rpx;
+    line-height: 54rpx;
+}
+
+.h88 {
+    height: 88rpx;
+}
+
+.pl28 {
+    padding-left: 28rpx;
+}
+
+.pr28 {
+    padding-right: 28rpx;
+}

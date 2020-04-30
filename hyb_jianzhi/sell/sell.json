@@ -1,0 +1,10 @@
+{
+    "navigationBarBackgroundColor": "#ff644a",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "分享赚钱",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "my-none": "/component/my_none/my_none"
+    }
+}

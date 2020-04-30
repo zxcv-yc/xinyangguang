@@ -1,0 +1,136 @@
+<view class="bsbb df jcsa bgcf pr bdb2">
+    <view>
+        <form bindsubmit="locationShowClick" reportSubmit="true">
+            <button formType="submit" style="width: 100%;height: 100%;">
+                <view class="h88">
+                    <text class="fs32 fw3 {{jqTy==='location'?'c':'c6'}}" wx:if="{{!jq}}">区域</text>
+                    <text class="fs32 fw3 {{jqTy==='location'?'c':'c6'}}" wx:else>{{positionArr[jq-1].name}}</text>
+                    <image class="ml10" mode="widthFix" src="../images/arrow_down.png" style="width:14rpx;display:{{jqTy=='location'?'none':'inline-block'}};"></image>
+                    <image class="ml10" mode="widthFix" src="../images/arrow_down_hover.png" style="width:14rpx;display:{{jqTy=='location'?'inline-block':'none'}};"></image>
+                </view>
+            </button>
+        </form>
+        <view class="screen-none" style="display:{{display1}};">
+            <view class="screen-option bsbb pl30 pr30 fs28">
+                <text>选择区域</text>
+            </view>
+            <view class="clearfix bsbb p30">
+                <form bindsubmit="checkAllClick" data-types="position" reportSubmit="true">
+                    <button class="screen-all fs28 bdr20 {{jq==''?' hover':' '}}" formType="submit" style="width: 100%;height: 100%;">全部</button>
+                </form>
+                <form bindsubmit="checkItemClick" data-index="{{index+1}}" data-j_id="{{item.id}}" data-title="{{item.name}}" data-types="position" reportSubmit="true" wx:for="{{positionArr}}" wx:key="option">
+                    <button class="screen-item fs28 bdr20 {{jq==index+1?'hover':' '}}" formType="submit" style="width: 33.3%;height: 100%;">{{item.name}}</button>
+                </form>
+            </view>
+        </view>
+    </view>
+    <view>
+        <form bindsubmit="typeShowClick" reportSubmit="true">
+            <button formType="submit" style="width: 100%;height: 100%;">
+                <view class="h88">
+                    <text class="fs32 fw3 {{jqTy==='type'?'c':'c6'}}" wx:if="{{!jq2}}">类型</text>
+                    <text class="fs32 fw3 {{jqTy==='type'?'c':'c6'}}" wx:else>{{positionArr1[jq2-1-positionArr.length].title}}</text>
+                    <image class="ml10" mode="widthFix" src="../images/arrow_down.png" style="width:14rpx;display:{{jqTy=='type'?'none':'inline-block'}};"></image>
+                    <image class="ml10" mode="widthFix" src="../images/arrow_down_hover.png" style="width:14rpx;display:{{jqTy=='type'?'inline-block':'none'}};"></image>
+                </view>
+            </button>
+        </form>
+        <view class="screen-none" style="display:{{display2}};">
+            <view class="screen-option bsbb pl30 pr30 fs28">
+                <text>选择类型</text>
+            </view>
+            <view class="clearfix bsbb p30">
+                <form bindsubmit="checkAllClick" data-types="type" reportSubmit="true">
+                    <button class="screen-all fs28 bdr20 {{jq2==''?' hover':' '}}" formType="submit" style="width: 100%;height: 100%;">全部</button>
+                </form>
+                <form bindsubmit="checkItemClick" data-index="{{index+1+positionArr.length}}" data-j_id="{{item.id}}" data-title="{{item.title}}" data-types="type" reportSubmit="true" wx:for="{{positionArr1}}" wx:key="type">
+                    <button class="screen-item fs28 bdr20 {{jq2==index+1+positionArr.length?'hover':' '}}" formType="submit" style="width: 33.3%;height: 100%;">{{item.title}}</button>
+                </form>
+            </view>
+        </view>
+    </view>
+    <view>
+        <form bindsubmit="timeShowClick" reportSubmit="true">
+            <button formType="submit" style="width: 100%;height: 100%;">
+                <view class="h88">
+                    <text class="fs32 fw3 {{jqTy==='time'?'c':'c6'}}" wx:if="{{!jq3}}">时间</text>
+                    <text class="fs32 fw3 {{jqTy==='time'?'c':'c6'}}" wx:else>{{positionArr2[jq3-1-positionArr.length-positionArr1.length].positions}}</text>
+                    <image class="ml10" mode="widthFix" src="../images/arrow_down.png" style="width:14rpx;display:{{jqTy=='time'?'none':'inline-block'}};"></image>
+                    <image class="ml10" mode="widthFix" src="../images/arrow_down_hover.png" style="width:14rpx;display:{{jqTy=='time'?'inline-block':'none'}};"></image>
+                </view>
+            </button>
+        </form>
+        <view class="screen-none" style="display:{{display3}};">
+            <view class="screen-option bsbb pl30 pr30 fs28">
+                <text>选择时间</text>
+            </view>
+            <view class="clearfix bsbb p30">
+                <form bindsubmit="checkAllClick" data-types="time" reportSubmit="true">
+                    <button class="screen-all fs28 bdr20 {{jq3==''?' hover':' '}}" formType="submit" style="width: 100%;height: 100%;">全部</button>
+                </form>
+                <form bindsubmit="checkItemClick" data-index="{{index+1+positionArr.length+positionArr1.length}}" data-j_id="{{item.p_id}}" data-title="{{item.positions}}" data-types="time" reportSubmit="true" wx:for="{{positionArr2}}" wx:key="type">
+                    <button class="screen-item fs28 bdr20 {{jq3==index+1+positionArr.length+positionArr1.length?'hover':' '}}" formType="submit" style="width:33.3%;height:100%">{{item.positions}}</button>
+                </form>
+            </view>
+        </view>
+    </view>
+</view>
+<view bindtap="hideClick" catchtouchmove="preventTouchMove" class="mask" style="display:{{display}};"></view>
+<view class="bgcf">
+    <block wx:if="{{keArr.length!=0}}">
+        <form bindsubmit="timeJobDetailClick" data-gq="{{item.gq}}" data-j_id="{{item.f_id}}" reportSubmit="true" wx:for="{{keArr}}" wx:key="unique">
+            <button formType="submit" style="width: 100%;height: 100%;">
+                <view class="bsbb shoucang df bgcf layout">
+                    <image class="imgSize" src="{{item.thumb}}"></image>
+                    <view class="w distance">
+                        <view class="df aic listtitle">
+                            <view class="fs30 c6">
+                  {{item.f_name}}
+                </view>
+                            <view>
+                                <image class="imgSizes" mode="aspectFill" src="/hyb_jianzhi/images/vip.png" wx:if="{{item.hy=='true'}}"></image>
+                                <image class="imgSizes" mode="aspectFill" src="/hyb_jianzhi/images/renzhen.png"></image>
+                            </view>
+                        </view>
+                        <view class="df fs24 c9 lh1 mt10 fenbu">
+                            <view>
+                                <view class="df">
+                                    <image mode="widthFix" src="/hyb_jianzhi/images/position.png" style="width:25rpx;"></image>
+                                    <view class="ml10 fw3" wx:if="{{item.dz==null}}">{{item.f_address}}
+                      <text class="ml15">{{item.juli}}km</text>
+                                    </view>
+                                    <view class="ml10 fw3" wx:else>{{item.dz}}
+                      <text class="ml15">{{item.juli}}km</text>
+                                    </view>
+                                </view>
+                                <view class="df aife mt10 listzhiye">
+                                    <image mode="widthFix" src="/hyb_jianzhi/images/data.png" style="width:25rpx;"></image>
+                                    <view class="ml10 fw3">{{item.f_gzdate1}}--{{item.f_gzdate2}}</view>
+                                </view>
+                            </view>
+                            <view class="fs24 c6" style="height: 30rpx;">{{item.fatime}}</view>
+                        </view>
+                        <view class="df jcsb mt15 listzhuangtai">
+                            <view class="df jcsb">
+                                <button class="jianzhitypes" style="margin-right:10rpx;">{{item.f_jianzhistyle}}</button>
+                                <button class="jianzhitypes jiesuan" style="margin-right:10rpx;">{{item['f_jiesuan']}}</button>
+                                <button class="jianzhitypes tuiguan" style="margin-right:10rpx;" wx:if="{{item.f_tuijian=='1'}}">置顶</button>
+                                <button class="jianzhitypes" hidden="{{item.baoming=='false'}}">已满</button>
+                                <button class="jianzhitypes tuiguan" hidden="{{item.tg==false}}">急招</button>
+                            </view>
+                            <view class="fs24 c6">
+                                <text class="c fs30" wx:if="{{is_hy=='0'||is_hy==''||is_hy==null}}">{{item.f_xinzi}}{{item.f_danwei}}</text>
+                                <text class="c fs30" wx:elif="{{(is_hy!='0'||is_hy!=''||is_hy==null)&&item.f_huiyuan!=null}}">{{item.f_huiyuan}}{{item.f_danwei}}</text>
+                                <text class="c fs30" wx:else>{{item.f_xinzi}}{{item.f_danwei}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </button>
+        </form>
+    </block>
+    <my-none none="{{none}}" wx:if="{{keArr.length==0}}"></my-none>
+</view>
+<my-bottom a=""></my-bottom>
+<view class="pb120 mt20"></view>
+<my-footer footdex="1"></my-footer>

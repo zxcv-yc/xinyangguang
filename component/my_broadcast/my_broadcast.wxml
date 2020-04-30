@@ -1,0 +1,9 @@
+<swiper autoplay circular class="h-class">
+    <swiper-item wx:for="{{broadcast}}" wx:key="unique">
+        <navigator appId="{{item.AppId}}" extraData="" openType="navigate" path="{{item.lianjie}}" target="miniProgram" version="develop">
+            <view>
+                <image mode="widthFix" src="{{item.thumb}}"></image>
+            </view>
+        </navigator>
+    </swiper-item>
+</swiper>

@@ -1,0 +1,121 @@
+.my_bg {
+    height: 480rpx;
+}
+
+.my_bg .pa {
+    bottom: 0;
+    left: 0;
+}
+
+.my_bg .btn.pa {
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    border-radius: 0 50rpx 50rpx 0;
+    padding: 0;
+    margin-right: 0;
+}
+
+.h60 {
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.mt80 {
+    margin-top: 80rpx;
+}
+
+.w200 {
+    width: 200rpx;
+}
+
+.fs60 {
+    font-size: 60rpx;
+}
+
+.h80 {
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.bdc {
+    border-color: #ff644a;
+}
+
+.bdcf {
+    border: 2rpx solid #fff;
+}
+
+.borderbt {
+    border-bottom: 1rpx solid rgba(255,255,255,0.3);
+}
+
+.xian {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.xian text {
+    display: block;
+    color: #fff;
+    width: 33.33%;
+}
+
+.xian text.btn {
+    color: #ff644a;
+    width: 100rpx;
+    height: 50rpx;
+    background: #fff;
+    border-radius: 5rpx;
+    text-align: center;
+    line-height: 50rpx;
+}
+
+.xian text:last-child {
+    color: #ff644a;
+    width: 100rpx;
+    height: 50rpx;
+    background: #fff;
+    border-radius: 5rpx;
+    text-align: center;
+    line-height: 50rpx;
+}
+
+.no_data {
+    text-align: center;
+    margin: 20rpx 0;
+}
+
+.no_img {
+    width: 50%;
+    margin: 0 auto;
+}
+
+view.mmxx {
+    width: 85%;
+}
+
+view.mmxx view:last-child {
+    width: 90%;
+}
+
+view.mmxx view text {
+    width: 100%;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+button {
+    width: 100%;
+    height: 100%;
+    border-radius: 0rpx;
+    line-height: 100%;
+    padding: 0;
+}
+
+button::after {
+    border: none;
+}

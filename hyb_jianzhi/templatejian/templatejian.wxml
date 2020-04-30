@@ -1,0 +1,27 @@
+<view class="padding">
+    <view class="back flex justify">
+        <view class="edit">
+            <view class="flex conr">
+                <text class="font26 color linH">XXXX</text>
+                <image class="imgSize distance" src="../images/bian.png"></image>
+                <text class="font30 colorY linH">编辑</text>
+            </view>
+            <view class="font18 color linH50">XXXXXXXXXXXXXXXXX</view>
+            <view class="flex">
+                <image class="imgSize distance" src="../images/dianhua.png"></image>
+                <text class="font18 color linH50">XXXXXXXXXXXX</text>
+            </view>
+            <view class="flex">
+                <image class="imgSize distance" src="../images/youxiang.png"></image>
+                <text class="font18 color linH50">XXXXXXXXXXXX</text>
+            </view>
+        </view>
+        <image class="imgTou" src="../images/touxiang.png"></image>
+    </view>
+    <view class="back" wx:for="{{data}}" wx:key="index">
+        <view class="font34 linH">{{item.tiple}}</view>
+        <view bindtap="dian" class="colorY font32" data-index="{{index}}" wx:if="{{item.val==''}}">{{item.tip}}</view>
+        <textarea bindblur="guan" bindinput="dongxi" class="text" data-index="{{index}}" placeholder="{{item.val}}" wx:if="{{item.val!=''}}"></textarea>
+    </view>
+</view>
+<button bindtap="tijiao">保存</button>

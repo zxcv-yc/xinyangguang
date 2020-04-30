@@ -1,0 +1,10 @@
+{
+    "navigationBarBackgroundColor": "#ff644a",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "兼职详情",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "my-bottom": "/component/my_bottom/my_bottom"
+    }
+}

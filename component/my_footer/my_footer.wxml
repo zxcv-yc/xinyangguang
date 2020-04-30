@@ -1,0 +1,13 @@
+<view class="pb120"></view>
+<view class="footer" style="background:{{footer.background}}">
+    <view class="h" style="width:{{100/footer.list.length}}%" wx:for="{{footer.list}}" wx:key="footer">
+        <navigator class="h" data-index="{{index}}" hoverClass="none" openType="reLaunch" url="{{item.url}}&index={{index}}" wx:if="{{item.text=='发布'}}">
+            <image data-index="{{index}}" mode="widthFix" src="{{index==footdex?item.selIcon:item.icons}}"></image>
+            <text style=" color:{{index==footdex?footer.seltxt:footer.txtcolor}}" wx:if="{{item.text}}">{{item.text}}</text>
+        </navigator>
+        <navigator class="h" data-index="{{index}}" hoverClass="none" openType="reLaunch" url="{{item.url}}?index={{index}}" wx:else>
+            <image data-index="{{index}}" mode="widthFix" src="{{index==footdex?item.selIcon:item.icons}}"></image>
+            <text style=" color:{{index==footdex?footer.seltxt:footer.txtcolor}}" wx:if="{{item.text}}">{{item.text}}</text>
+        </navigator>
+    </view>
+</view>

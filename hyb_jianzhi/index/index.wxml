@@ -1,0 +1,190 @@
+<view class="zhezhao" wx:if="{{close}}">
+    <view class="zhe_main">
+        <view>
+      你的账号被限制了访问，请及时联系管理员处理，您的用户id为
+      <text style="color:red;font-size:28rpx;">{{u_id}}</text>
+        </view>
+        <view>
+            <text style="color:red;font-size:28rpx;">封号原因：</text> {{userinfo.uf_content}}
+    </view>
+        <view>
+            <button class="lxfy" hoverClass="" openType="contact" sessionFrom="{\"nickName\":\"{{userinfo.u_name}}\",\"avatarUrl\":\"{{userinfo.u_thumb}}\"}">
+        在线客服
+      </button>
+        </view>
+    </view>
+</view>
+
+<!-- 提现弹窗 -->
+<view class='zhezhao_mask' bindtap='hidenNotice' wx:if="{{tx.tx_ok}}"></view>
+<view class="zhezhao_tx" wx:if="{{tx.tx_ok}}">
+    <view class="zhe_main_tx">
+        <view style='text-align:center;margin-top:40rpx;margin-bottom:40rpx;'>
+      现在您可以去领取您的工资啦！
+      <!-- <text style="color:red;font-size:28rpx;">{{u_id}}</text> -->
+        </view>
+        <!-- <view>
+            <text style="color:red;font-size:28rpx;">封号原因：</text> {{userinfo.uf_content}}
+    </view> -->
+        <view>
+            <button class="lxfy" bindtap='goWallet'  hoverClass="" style='background-color:#FF644A;color:white;'>去领取               </button>
+        </view>
+    </view>
+</view>
+
+<!-- 分销弹窗 -->
+<view class='zhezhao_mask' bindtap='hidenFx' wx:if="{{fx}}"></view>
+<view class="zhezhao_tx" wx:if="{{fx}}">
+    <view class="zhe_main_tx">
+        <view style='text-align:center;margin-top:40rpx;margin-bottom:40rpx;'>
+      {{fxmessage}}
+      <!-- <text style="color:red;font-size:28rpx;">{{u_id}}</text> -->
+        </view>
+        <!-- <view>
+            <text style="color:red;font-size:28rpx;">封号原因：</text> {{userinfo.uf_content}}
+    </view> -->
+        <view>
+            <button class="lxfy" bindtap='goFx' data-id="{{fx}}"  hoverClass="" style='background-color:#FF644A;color:white;'>去领取               </button>
+        </view>
+    </view>
+</view>
+
+<block wx:if="{{!ps}}">
+    <view class="pl30 pr30" style="height:70rpx;background:#ff644a;color:#fff;">
+        <view class="bgcf df aic h88 bsbb" style="height:70rpx;background:#ff644a;">
+            <form bindsubmit="choiceClick" reportSubmit="true" style="width:16%;">
+                <button class="w20 df aic" formType="submit" plain="true" style="-webkit-transform: scale(0.5);transform:scale(1);content:'';height:68rpx; width: 95%;border:1px solid transparent;background-color:transparent; position: absolute; top: 0; left: 0width:100%;background:#ff644a;color:#fff;">
+                    <view>
+                        <text class="fs24 text-over">{{city}}</text>
+                        <image class="ml10" mode="widthFix" src="../images/arrow_down_hollow.png" style="width:24rpx;height:13rpx;"></image>
+                    </view>
+                </button>
+            </form>
+            <form bindsubmit="searchClick" class="ml20" reportSubmit="true" style="width:84%;">
+                <button class="df aic bgceb bdr50 h58 bdn" formType="submit" style="width:95%;height:50rpx;border-radius:10rpx;padding-left:20rpx;background:#fff;">
+                    <image mode="widthFix" src="../images/search.png" style="width:28rpx;"></image>
+                    <text class="c9 fs24 ml20">大家都在搜：推广</text>
+                </button>
+            </form>
+        </view>
+    </view>
+    <my-broadcast broadcast="{{broadcast}}" hClass="h380"></my-broadcast>
+    <!-- <view class="summary">
+        <view class="summaryImg">
+            <view class="summaryBackground" style="height:{{H}}rpx;transition: height 1s;"></view>
+            <view class="summaryBackground2" style="height:{{H2}}rpx;transition: height 1s;"></view>
+            <view class="summaryBackground" style="height:{{H3}}rpx;transition: height 1s;"></view>
+            <view class="summaryBackground2" style="height:{{H4}}rpx;transition: height 1s;"></view>
+        </view>
+        <view class="statistics">
+            <view style="padding-left: 10rpx;box-sizing: border-box;" wx:for="{{summary}}" wx:key="index">
+                <text class="titleColor">{{item.title}}</text>
+                <text class="numberColor">{{item.number}}</text>
+            </view>
+        </view>
+    </view> -->
+    <swiper class="{{jianzhi_types==1?'hei1':'hei2'}}">
+        <swiper-item class="df222 zsz" wx:for="{{jianzhi_type}}">
+            <form bindsubmit="timeJobListClick" data-title="{{item['title']}}" reportSubmit="true" style="width:20%;margin:16rpx 0 10rpx" wx:for="{{item}}" wx:key="index">
+                <button formType="submit" style="width:100%;height: 100%;">
+                    <view class="dif fdc aic jcc">
+                        <image mode="aspectFill" src="{{item['thumb']}}" style="width:71rpx;height:71rpx;"></image>
+                        <text class="fs24 c6" style="margin-top:10rpx">{{item['title']}}</text>
+                    </view>
+                </button>
+            </form>
+        </swiper-item>
+    </swiper>
+    <view class="mt20 df aic bgcf fs30 pl30 bdb2 remenjz" style="line-height:75rpx;">热门
+    <text class="c fs18 ml20 mt30"></text>
+    </view>
+    <view class="bgcf">
+        <my-sku-page binddetailBtn="timeJobDetailClick" none="{{none}}" wx:for="{{pageWrapCount}}" wx:key="unique"></my-sku-page>
+    </view>
+    <my-none none="{{none}}" wx:if="{{pageWrapCount.length==0}}"></my-none>
+    <view class="mt20 df aic bgcf fs30 pl30 bdb2 remenjz" style="line-height:75rpx;">最新
+    <text class="c fs18 ml20 mt30"></text>
+    </view>
+    <view class="bgcf">
+        <view bindtap="timeJobDetailClicks" class="bsbb shoucang df bgcf average" data-gq="{{item.gq}}" data-id="{{item.f_id}}" wx:for="{{keArrs}}" wx:key="unique">
+            <image class="imgSize" src="{{item.thumb}}"></image>
+            <view class="w distance">
+                <view class="df aic listtitle">
+                    <view class="fs32 c6">
+              {{item.f_name}}
+              </view>
+                    <view>
+                        <image class="imgSizes" mode="aspectFill" src="/hyb_jianzhi/images/vip.png" wx:if="{{item.hy=='true'}}"></image>
+                        <image class="imgSizes" mode="aspectFill" src="/hyb_jianzhi/images/renzhen.png"></image>
+                    </view>
+                </view>
+                <view class="df aife fs24 c9 lh1 mt10 fenbu">
+                    <view>
+                        <view class="df aife">
+                            <image mode="widthFix" src="/hyb_jianzhi/images/position.png" style="width:25rpx;"></image>
+                            <view class="ml10 fw3" wx:if="{{item.dz==null}}">{{item.f_address}}
+                  <text class="ml15">{{item.juli}}km</text>
+                            </view>
+                            <view class="ml10 fw3" wx:else>{{item.dz}}
+                  <text class="ml15">{{item.juli}}km</text>
+                            </view>
+                        </view>
+                        <view class="df aife mt10 listzhiye">
+                            <image mode="widthFix" src="/hyb_jianzhi/images/data.png" style="width:25rpx;"></image>
+                            <view class="ml10 fw3">{{item.f_gzdate1}}--{{item.f_gzdate2}}</view>
+                        </view>
+                    </view>
+                    <view class="fs24 c6" style="height: 30rpx;">{{item.fatime}}</view>
+                </view>
+                <view class="df jcsb mt15 listzhuangtai">
+                    <view class="df jcsb">
+                        <button class="jianzhitypes" style="margin-right:10rpx;">{{item.f_jianzhistyle}}</button>
+                        <button class="jianzhitypes jiesuan" style="margin-right:10rpx;">{{item['f_jiesuan']}}</button>
+                        <button class="jianzhitypes" hidden="{{item.baoming=='false'}}">已满</button>
+                        <button class="jianzhitypes tuiguan" hidden="{{item.tg==false}}">急招</button>
+                    </view>
+                    <text class="c fs32">{{item.xinzi}}{{item.f_danwei}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <my-none none="{{none}}" wx:if="{{keArrs.length==0}}"></my-none>
+    <my-footer></my-footer>
+    <view catchtouchmove="true" class="mask" wx:if="{{getUseInfo}}">
+        <view class="shouquan bdr20 bgcf">
+            <view class="shouquan-img">
+                <image mode="widthFix" src="../images/shouquan.png"></image>
+            </view>
+            <view class="df fww jcc aic mt20 c6 fs30 shouquan-con">请同意获取您的头像、昵称等信息</view>
+            <button bindgetuserinfo="onGotUserInfo" class="bgc cf" lang="zh_CN" openType="getUserInfo">同意</button>
+        </view>
+    </view>
+</block>
+<view class="box_ps" wx:if="{{ps}}">
+    <my-broadcast broadcast="{{broadcast}}" hClass="h380"></my-broadcast>
+    <view class="xcxbox">
+        <view bindtap="link_detail_ps" class="box" data-id="{{item.id}}" wx:for="{{pianlist}}" wx:key="xcx">
+            <view class="box-img lf">
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view class="box-bj lf">
+                <view>
+                    <text>{{item.title}}</text>
+                </view>
+                <view>{{item.content}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="footer" style="background:{{footer.background}}">
+        <!-- <view style="width:{{100/(daohang1.length+1)}}%">
+            <image data-index="{{index}}" src="/hyb_jianzhi/images/apply.png"></image>
+            <text style=" color:{{footer.seltxt}}">首页</text>
+        </view> -->
+        <view bindtap="tiaozhuan" data-appid="{{item.appid}}" data-path="{{item.linajie}}" style="width:{{100/(daohang1.length+1)}}%" wx:for="{{daohang1}}" wx:key="footer">
+            <navigator appId="{{item.appid}}" extraData="" path="{{item.lianjie}}" target="miniProgram">
+                <image data-index="{{index}}" src="{{item.thumb}}"></image>
+                <text style=" color:{{index==footer.footdex?footer.seltxt:footer.txtcolor}}">{{item.title}}</text>
+            </navigator>
+        </view>
+    </view>
+</view>

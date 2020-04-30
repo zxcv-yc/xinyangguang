@@ -1,0 +1,9 @@
+{
+    "navigationBarBackgroundColor": "#ff644a",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "我的评论",
+    "backgroundTextStyle": "light",
+    "usingComponents": {
+        "my-none": "/component/my_none/my_none"
+    }
+}

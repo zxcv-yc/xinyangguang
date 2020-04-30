@@ -1,0 +1,51 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 95rpx;
+    background: #fff;
+    border-top: 1rpx solid #C5C5C5;
+    z-index: 5555;
+}
+
+.footer view {
+    display: inline-block;
+}
+
+.footer view image {
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+    margin: 0 auto;
+}
+
+.footer view text {
+    display: block;
+    width: 100%;
+    font-size: 22rpx;
+    color: #AFAFAF;
+    text-align: center;
+    margin-top: 5rpx;
+}
+
+.footer view .sel_color {
+    color: #04a9f0;
+}
+
+.footer view .big-img {
+    width: 90rpx;
+}
+
+.h {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.pb120 {
+    padding-bottom: 120rpx;
+}

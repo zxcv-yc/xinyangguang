@@ -1,0 +1,76 @@
+<view class="my_bg bgc df fdc jcsb">
+    <view class="mt20 df fdc aic jcc bsbb pl30 pr30 pt30">
+        <view class="df w">
+            <view class="w50 df fdc">
+                <view class="df aic jcc">
+                    <image mode="widthFix" src="../images/profit.png" style="width:30rpx;"></image>
+                    <text class="fs28 cf fw3 ml20">我的收益</text>
+                </view>
+                <view class="fs24 cf fw3 df aic jcc mt15">￥{{list.shouyimoney}}</view>
+            </view>
+            <view class="w50 df fdc">
+                <view class="df aic jcc">
+                    <image mode="widthFix" src="../images/balance.png" style="width:30rpx;"></image>
+                    <text class="fs28 cf fw3 ml20">我的余额</text>
+                </view>
+                <view class="fs24 cf fw3 df aic jcc mt15">￥{{list.u_money}}</view>
+            </view>
+        </view>
+        <view>
+            <form bindsubmit="tiClick" reportSubmit="true">
+                <button class="bgcf h60 fs32 c mt80 bdr50 btn w200" formType="submit">余额提现</button>
+            </form>
+        </view>
+    </view>
+    <view>
+        <image mode="widthFix" src="../images/my_bg.png"></image>
+    </view>
+</view>
+<view class="bgcf">
+    <view class="bsbb pl30 pr30 h80 fs30 c6 mt20 bdb2">
+        <text class="bdl2 pl30 bdc">收支明细</text>
+    </view>
+    <view class="bsbb p30 bdb2 df aic jcsb" wx:for="{{list.shouyi}}" wx:key="unique">
+        <view class="df">
+            <view>
+                <image mode="aspectFill" src="../images/active_04.png" style="width:64rpx;height:64rpx;"></image>
+            </view>
+            <view class="ml20 df fdc jcsb">
+                <text class="fs24 c28">{{item.jianzhi}}</text>
+                <text class="fs20 c9">{{item.time}}</text>
+            </view>
+        </view>
+        <view class="fs24 c">+ {{item.money}}</view>
+    </view>
+    <view class="bsbb p30 bdb2 df aic jcsb" wx:for="{{list.tixian}}" wx:key="unique">
+        <view class="df">
+            <view>
+                <image mode="aspectFill" src="../images/active_05.png" style="width:64rpx;height:64rpx;"></image>
+            </view>
+            <view class="ml20 df fdc jcsb">
+                <text class="fs24 c28">钱包提现 [{{item.style}}]</text>
+                <text class="fs20 c9">{{item.time}}</text>
+            </view>
+        </view>
+        <view class="fs24 c">- {{item.money}}</view>
+    </view>
+    <view class="bsbb p30 bdb2 df aic jcsb" wx:for="{{list.pay}}" wx:key="unique">
+        <view class="df">
+            <view>
+                <image mode="aspectFill" src="../images/active_05.png" style="width:64rpx;height:64rpx;"></image>
+            </view>
+            <view class="ml20 df fdc jcsb">
+                <text class="fs24 c28">{{item.content}}</text>
+                <text class="fs20 c9">{{item.time}}</text>
+            </view>
+        </view>
+        <view class="fs24 c">- {{item.money}}</view>
+    </view>
+</view>
+<view class="no_data" wx:if="{{list.tixian.length==0&&list.shouyi.length==0}}">
+    <view class="no_img">
+        <image mode="widthFix" src="/hyb_jianzhi/images/none.png"></image>
+    </view>
+    <view class="fs28 p30">暂无收支明细</view>
+</view>
+<view class="pb20"></view>

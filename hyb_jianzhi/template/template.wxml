@@ -1,0 +1,22 @@
+<template name="footer">
+    <view class="footer" style="background:{{background}}">
+        <view style="width:{{100/list.length}}%" wx:for="{{list}}" wx:key="footer">
+            <navigator data-index="{{index}}" openType="redirectTo" url="{{item.lianjie}}?index={{index}}">
+                <image data-index="{{index}}" src="{{index==footdex?item.thumb:item.thumb2}}"></image>
+                <text style=" color:{{index==footdex?seltxt:txtcolor}}">{{item.title}}</text>
+            </navigator>
+        </view>
+    </view>
+</template>
+<template name="sub_nav">
+    <scroll-view class="sub_nav" scrollX="true" style="white-space:nowrap">
+        <text bindtap="swichNav" class="{{nav.currentTab==index?'onon':''}}" data-current="{{index}}" wx:for="{{nav.nav_list}}" wx:key="list">{{item}}</text>
+    </scroll-view>
+</template>
+<template name="swiper">
+    <swiper autoplay="{autoplay}}" class="swiper_wrap" duration="{{duration}}" indicatorDots="{{indicatorDots}}" interval="{{interval}}">
+        <swiper-item bindtap="swiperUrl" class="swiper_item" data-AppId="{{item.AppId}}" data-AppSecret="{{item.AppSecret}}" data-lianjie="{{item.lianjie}}" mode="aspectFit" wx:for="{{imgUrls}}" wx:key="swiper">
+            <image class="slide-image" mode="aspectFill" src="{{item.thumb}}"></image>
+        </swiper-item>
+    </swiper>
+</template>

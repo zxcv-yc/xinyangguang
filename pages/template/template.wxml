@@ -1,0 +1,190 @@
+<template name="onLineTierPic">
+    <view class="popover_box" wx:if="{{onlineData.isShow}}">
+        <view class="popover_box_pic">
+            <view>
+                <image bindtap="atDetails" class="popover_box_pic_img" data-acdetail="{{onlineData.line_page}}" data-apd="{{onlineData.app_id}}" data-msgkey="{{onlineData.msg_key}}" data-type="{{onlineData.msg_lp_type}}" mode="widthFix" src="{{onlineData.line_url}}"></image>
+                <image bindtap="colseOneBox" class="popover_box_pic_clone" src="https://openapi.xiaoshentui.com/push_sdk_img/online-close.png"></image>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="onLineTierText">
+    <view class="popover" wx:if="{{onlineData.temp_type==1}}">
+        <view class="popover_box" wx:if="{{onlineData.isShow}}">
+            <view class="popover_box_one">
+                <form bindsubmit="pushFormSubmit" reportSubmit="true">
+                    <image class="bellImg" src="https://openapi.xiaoshentui.com/push_sdk_img/online-push_type2_title.png"></image>
+                    <button bindtap="colseOneBox" class="closeTwoBox" formType="submit" plain="true">
+                        <image src="https://openapi.xiaoshentui.com/push_sdk_img/online-push_type2_clone.png"></image>
+                    </button>
+                    <view class="box_two_top">{{onlineData.line_title}}</view>
+                    <view class="box_two_btm">{{onlineData.line_contents}}</view>
+                    <button bindtap="atDetails" class="check_detail_two" data-acdetail="{{onlineData.line_page}}" data-apd="{{onlineData.app_id}}" data-msgkey="{{onlineData.msg_key}}" data-type="{{onlineData.msg_lp_type}}" formType="submit"> {{onlineData.button_content}} </button>
+                </form>
+            </view>
+        </view>
+    </view>
+    <view class="popover" wx:if="{{onlineData.temp_type==2}}">
+        <view class="popover_box" wx:if="{{onlineData.isShow}}">
+            <view class="popover_box_two">
+                <form bindsubmit="pushFormSubmit" reportSubmit="true">
+                    <view class="box_one_top bgImgBox">
+                        <image class="bgImg" src="https://openapi.xiaoshentui.com/push_sdk_img/online-push_type1_title.png"></image>
+                        <text>{{onlineData.line_title}}</text>
+                    </view>
+                    <view class="box_one_btm btn_three_btm">
+                        <view class="box_one_btm_son">{{onlineData.line_contents}}</view>
+                    </view>
+                    <button bindtap="atDetails" class="check_detail_three" data-acdetail="{{onlineData.line_page}}" data-apd="{{onlineData.app_id}}" data-msgkey="{{onlineData.msg_key}}" data-type="{{onlineData.msg_lp_type}}" formType="submit"> {{onlineData.button_content}} </button>
+                    <button bindtap="colseOneBox" class="threeCloseImg" formType="submit" plain="true">
+                        <image src="https://openapi.xiaoshentui.com/push_sdk_img/online-push_type1_clone_3.0.png"></image>
+                    </button>
+                </form>
+            </view>
+        </view>
+    </view>
+    <view class="popover" wx:if="{{onlineData.temp_type==3}}">
+        <view class="popover_box" wx:if="{{onlineData.isShow}}">
+            <view class="popover_box_three">
+                <form bindsubmit="pushFormSubmit" reportSubmit="true">
+                    <view class="box_one_top">{{onlineData.line_title}}</view>
+                    <view class="box_one_btm">
+                        <view class="box_one_btm_son">{{onlineData.line_contents}}</view>
+                    </view>
+                    <button bindtap="atDetails" class="check_detail" data-acdetail="{{onlineData.line_page}}" data-apd="{{onlineData.app_id}}" data-msgkey="{{onlineData.msg_key}}" data-type="{{onlineData.msg_lp_type}}" formType="submit"> {{onlineData.button_content}} </button>
+                    <button bindtap="colseOneBox" class="threeCloseImg" formType="submit" plain="true">
+                        <image src="https://openapi.xiaoshentui.com/push_sdk_img/online-push_type1_clone_3.0.png"></image>
+                    </button>
+                </form>
+            </view>
+        </view>
+    </view>
+    <view class="popover" wx:if="{{onlineData.temp_type==4}}">
+        <view class="popover_box" wx:if="{{onlineData.isShow}}">
+            <view class="popover_box_four">
+                <form bindsubmit="pushFormSubmit" reportSubmit="true">
+                    <view class="online-arrow">
+                        <image class="online-arrow-img" src="https://openapi.xiaoshentui.com/push_sdk_img/online-arrow.png"></image>
+                    </view>
+                    <view class="online-arrow-content">
+                        <view class="box-four-tip-box">
+                            <image src="https://openapi.xiaoshentui.com/push_sdk_img/box-arrow.png"></image>
+                            <text class="box-four-box-txt">{{onlineData.line_title}}</text>
+                        </view>
+                        <view class="box-four-content-main">
+                            <view class="box-four-step">
+                                <view class="box-four-step-cir">1</view>
+                                <text class="box-four-step-txt">点击右上角</text>
+                                <image class="wx-ctrl" src="https://openapi.xiaoshentui.com/push_sdk_img/online-ctrl.png"></image>
+                            </view>
+                            <view class="box-four-step">
+                                <view class="box-four-step-cir">2</view>
+                                <text class="box-four-step-txt">选择“添加到我的小程序”</text>
+                            </view>
+                            <button bindtap="colseOneBox" class="box-four-btn" formType="submit"> {{onlineData.button_content}} </button>
+                        </view>
+                    </view>
+                </form>
+            </view>
+        </view>
+    </view>
+    <view class="popover" wx:if="{{onlineData.temp_type==5}}">
+        <view class="popover_box" wx:if="{{onlineData.isShow}}">
+            <view class="popover_box_four">
+                <form bindsubmit="pushFormSubmit" reportSubmit="true">
+                    <view class="online-arrow">
+                        <image class="online-arrow-img" src="https://openapi.xiaoshentui.com/push_sdk_img/online-arrow.png"></image>
+                    </view>
+                    <view class="online-arrow-content">
+                        <view class="box-four-tip-box">
+                            <image src="https://openapi.xiaoshentui.com/push_sdk_img/box-arrow-blue.png"></image>
+                            <text class="box-four-box-txt">{{onlineData.line_title}}</text>
+                        </view>
+                        <view class="box-four-content-main">
+                            <view class="box-four-step">
+                                <view class="box-four-step-cir box-four-blue">1</view>
+                                <text class="box-four-step-txt">点击右上角</text>
+                                <image class="wx-ctrl" src="https://openapi.xiaoshentui.com/push_sdk_img/online-ctrl.png"></image>
+                            </view>
+                            <view class="box-four-step">
+                                <view class="box-four-step-cir box-four-blue">2</view>
+                                <text class="box-four-step-txt">选择“添加到我的小程序”</text>
+                            </view>
+                            <button bindtap="colseOneBox" class="box-four-btn" formType="submit"> {{onlineData.button_content}} </button>
+                        </view>
+                    </view>
+                </form>
+            </view>
+        </view>
+    </view>
+    <view class="popover" wx:if="{{onlineData.temp_type==6}}">
+        <view class="popover_box" wx:if="{{onlineData.isShow}}">
+            <view class="popover-six">
+                <form bindsubmit="pushFormSubmit" reportSubmit="true">
+                    <image class="tem-six" src="https://openapi.xiaoshentui.com/push_sdk_img/online-tem-6.png"></image>
+                    <text class="box-six-box-txt">{{onlineData.line_title}}</text>
+                    <text class="box-six-box-con">{{onlineData.line_contents}}</text>
+                    <button bindtap="atDetails" class="box-six-btn" data-acdetail="{{onlineData.line_page}}" data-apd="{{onlineData.app_id}}" data-msgkey="{{onlineData.msg_key}}" data-type="{{onlineData.msg_lp_type}}" formType="submit"> 我知道了 </button>
+                    <button bindtap="colseOneBox" class="popover-online-close" formType="submit" plain="true">
+                        <image class="online-close-img" src="https://openapi.xiaoshentui.com/push_sdk_img/online-close.png"></image>
+                    </button>
+                </form>
+            </view>
+        </view>
+    </view>
+    <view class="popover" wx:if="{{onlineData.temp_type==7}}">
+        <view class="popover_box" wx:if="{{onlineData.isShow}}">
+            <view class="popover-seven">
+                <view class="popover-sev-box">
+                    <form bindsubmit="pushFormSubmit" reportSubmit="true">
+                        <view class="popover-sev-title-box">
+                            <image class="popover-sev-title-img" src="https://openapi.xiaoshentui.com/push_sdk_img/online-tem-7.png"></image>
+                            <text class="popover-sev-title">{{onlineData.line_title}}</text>
+                        </view>
+                        <view class="popover-sev-con">{{onlineData.line_contents}}</view>
+                        <button bindtap="atDetails" class="box-seven-btn" data-acdetail="{{onlineData.line_page}}" data-apd="{{onlineData.app_id}}" data-msgkey="{{onlineData.msg_key}}" data-type="{{onlineData.msg_lp_type}}" formType="submit"> {{onlineData.button_content}} </button>
+                        <button bindtap="colseOneBox" class="popover-seven-close" formType="submit" plain="true">
+                            <image class="online-close-img" src="https://openapi.xiaoshentui.com/push_sdk_img/online-close.png"></image>
+                        </button>
+                    </form>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="popover" wx:if="{{onlineData.temp_type==8}}">
+        <view class="popover_box" wx:if="{{onlineData.isShow}}">
+            <view class="popover-eight">
+                <form bindsubmit="pushFormSubmit" reportSubmit="true">
+                    <view class="popover-eight-title-box">
+                        <image class="popover-eight-title-img" src="https://openapi.xiaoshentui.com/push_sdk_img/online-tem-8.png"></image>
+                        <text class="popover-eight-title">{{onlineData.line_title}}</text>
+                    </view>
+                    <view class="popover-eight-con">{{onlineData.line_contents}}</view>
+                    <button bindtap="atDetails" class="box-eight-btn" data-acdetail="{{onlineData.line_page}}" data-apd="{{onlineData.app_id}}" data-msgkey="{{onlineData.msg_key}}" data-type="{{onlineData.msg_lp_type}}" formType="submit"> {{onlineData.button_content}} </button>
+                    <button bindtap="colseOneBox" class="popover-seven-close" formType="submit" plain="true">
+                        <image class="online-close-img" src="https://openapi.xiaoshentui.com/push_sdk_img/online-close.png"></image>
+                    </button>
+                </form>
+            </view>
+        </view>
+    </view>
+    <view class="popover" wx:if="{{onlineData.temp_type==9}}">
+        <view class="popover_box" wx:if="{{onlineData.isShow}}">
+            <view class="popover-nine">
+                <form bindsubmit="pushFormSubmit" reportSubmit="true">
+                    <view class="popover-nine-title-box">
+                        <image class="popover-nine-title-img" src="https://openapi.xiaoshentui.com/push_sdk_img/online-tem-9.png"></image>
+                        <text class="popover-nine-title">{{onlineData.line_title}}</text>
+                    </view>
+                    <view class="popover-nine-con-box">
+                        <view class="popover-con-txt">{{onlineData.line_contents}}</view>
+                        <button bindtap="atDetails" class="box-nine-btn" data-acdetail="{{onlineData.line_page}}" data-apd="{{onlineData.app_id}}" data-msgkey="{{onlineData.msg_key}}" data-type="{{onlineData.msg_lp_type}}" formType="submit"> {{onlineData.button_content}} </button>
+                    </view>
+                    <button bindtap="colseOneBox" class="popover-seven-close" formType="submit" plain="true">
+                        <image class="online-close-img" src="https://openapi.xiaoshentui.com/push_sdk_img/online-close.png"></image>
+                    </button>
+                </form>
+            </view>
+        </view>
+    </view>
+</template>

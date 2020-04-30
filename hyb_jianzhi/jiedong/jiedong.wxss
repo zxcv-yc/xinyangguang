@@ -1,0 +1,40 @@
+.fff {
+    background: #fff;
+}
+
+button {
+    line-height: 90rpx;
+}
+
+.chongzhi {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.chongzhi text {
+    position: relative;
+    top: -5rpx;
+}
+
+.chongzhi input {
+    display: inline-block;
+    max-width: 180rpx;
+    font-size: 60rpx;
+}
+
+view {
+    text-align: center;
+}
+
+.jiedong image {
+    width: 130rpx;
+    height: 170rpx;
+}
+
+.btn {
+    position: absolute;
+    bottom: 100rpx;
+    left: 0;
+    width: 100%;
+}

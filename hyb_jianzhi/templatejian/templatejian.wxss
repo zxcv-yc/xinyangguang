@@ -1,0 +1,99 @@
+.padding {
+    padding: 0 20rpx;
+}
+
+.back {
+    background: #ffffff;
+    border: 1rpx solid #ffffff;
+    border-radius: 20rpx;
+    padding: 30rpx;
+    box-sizing: border-box;
+    margin-top: 20rpx;
+    box-shadow: 0rpx 0rpx 10rpx 10rpx #e2e2e2;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit {
+    width: 70%;
+}
+
+.imgSize {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.conr {
+    align-items: center;
+}
+
+.font26 {
+    font-size: 26rpx;
+}
+
+.color {
+    color: #919191;
+}
+
+.distance {
+    margin: 0 20rpx;
+    box-sizing: border-box;
+}
+
+.font30 {
+    font-size: 30rpx;
+}
+
+.colorY {
+    color: #d3be53;
+}
+
+.linH {
+    line-height: 60rpx;
+}
+
+.font18 {
+    font-size: 20rpx;
+}
+
+.linH50 {
+    line-height: 40rpx;
+}
+
+.imgTou {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.justify {
+    justify-content: space-between;
+}
+
+.font34 {
+    font-size: 34rpx;
+    font-weight: 600;
+}
+
+.font32 {
+    font-size: 32rpx;
+    line-height: 140rpx;
+    text-align: center;
+}
+
+.text {
+    height: 138rpx;
+    width: 100%;
+    border: 1rpx solid #919191;
+    font-size: 24rpx;
+}
+
+.dispaly {
+    display: block;
+}
+
+.none {
+    display: none;
+}

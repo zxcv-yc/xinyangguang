@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "my-none": "/component/my_none/my_none"
+    }
+}

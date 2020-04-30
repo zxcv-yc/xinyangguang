@@ -1,0 +1,7 @@
+{
+    "navigationBarBackgroundColor": "#ff644a",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "我的钱包",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+}

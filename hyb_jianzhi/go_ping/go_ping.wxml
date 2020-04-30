@@ -1,0 +1,9 @@
+<form bindsubmit="subClick">
+    <view class="bsbb pl30 pr30 pt30 pb30 bgcf df jcsb h300">
+        <view class="bsbb pl30 pr30 pt15 pb15 w">
+            <textarea class="c6 fs28 w h bd bdr20 bsbb p20" name="pinglun" placeholder="请输入你的评价" placeholderClass="c9"></textarea>
+        </view>
+    </view>
+    <input hidden="true" name="b_id" value="{{b_id}}"></input>
+    <button class="bgc cf df aic jcc w360 h88 mt50 fs32 bdr50" formType="submit">确认</button>
+</form>

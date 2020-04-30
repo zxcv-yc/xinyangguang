@@ -1,0 +1,14 @@
+{
+    "navigationBarBackgroundColor": "#ff644a",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "",
+    "backgroundTextStyle": "light",
+    "usingComponents": {
+        "my-broadcast": "/component/my_broadcast/my_broadcast",
+        "my-sku-page": "/component/sku_page/sku_page",
+        "my-none": "/component/my_none/my_none",
+        "my-footer": "/component/my_footer/my_footer",
+        "my-bottom": "/component/my_bottom/my_bottom"
+    },
+    "enablePullDownRefresh":true
+}

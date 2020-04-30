@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="gongzi {{select1 ?  'select' : ''}}"  >
+    您的工资:{{baoming.gongzi}}
+  </view>
+  <view class="yajin {{select2 ?  'select' : ''}}" bindtap="select2" >
+    您的押金:{{baoming.yajin}}
+  </view>
+  <view class="tishi">
+    *若您选择不提现您的押金,则会为您自动报名此兼职中您未报名的下一场
+  </view>
+  <!-- <view class="qcode">
+    <image src="{{qcode}}" bindlongpress="saveQcode" ></image>
+    <view>*长按可保存到手机,工资领取后使用微信扫描此二维码可将您的工资提现至微信</view>
+  </view> -->
+  <view class="yq">
+    邀请好友到本平台参加兼职,就可以获得5元现金奖励奥~
+  </view>
+  <button  class="lingqu" bindtap="lingqu" >立即领取</button>
+</view>

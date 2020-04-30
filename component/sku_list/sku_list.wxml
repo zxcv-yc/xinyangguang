@@ -1,0 +1,44 @@
+<block wx:if="{{keArr.length!=0}}">
+    <view bindtap="timeJobDetailClick" class="bsbb shoucang df bgcf average" data-gq="{{item.gq}}" data-j_id="{{item.f_id}}" wx:for="{{keArr}}" wx:key="unique">
+        <image class="imgSize" src="{{item.thumb}}"></image>
+        <view class="w distance">
+            <view class="df aic listtitle">
+                <view class="fs32 c6">
+          {{item.f_name}}
+            </view>
+                <view>
+                    <image class="imgSizes" mode="aspectFill" src="/hyb_jianzhi/images/vip.png" wx:if="{{item.hy=='true'}}"></image>
+                    <image class="imgSizes" mode="aspectFill" src="/hyb_jianzhi/images/renzhen.png"></image>
+                </view>
+            </view>
+            <view class="df aife fs24 c9 lh1 mt10 fenbu">
+                <view>
+                    <view class="df aife">
+                        <image mode="widthFix" src="/hyb_jianzhi/images/position.png" style="width:25rpx;"></image>
+                        <view class="ml10 fw3" wx:if="{{item.dz==null}}">{{item.f_address}}
+                <text class="ml15">{{item.juli}}km</text>
+                        </view>
+                        <view class="ml10 fw3" wx:else>{{item.dz}}
+                <text class="ml15">{{item.juli}}km</text>
+                        </view>
+                    </view>
+                    <view class="df aife mt10 listzhiye">
+                        <image mode="widthFix" src="/hyb_jianzhi/images/data.png" style="width:25rpx;"></image>
+                        <view class="ml10 fw3">{{item.f_gzdate1}}--{{item.f_gzdate2}}</view>
+                    </view>
+                </view>
+                <view class="fs24 c6" style="height: 30rpx;">{{item.fatime}}</view>
+            </view>
+            <view class="df jcsb mt15 listzhuangtai">
+                <view class="df jcsb">
+                    <button class="jianzhitypes" style="margin-right:10rpx;">{{item.f_jianzhistyle}}</button>
+                    <button class="jianzhitypes jiesuan" style="margin-right:10rpx;">{{item['f_jiesuan']}}</button>
+                    <button class="jianzhitypes tuiguan" style="margin-right:10rpx;" wx:if="{{item.f_tuijian=='1'}}">置顶</button>
+                    <button class="jianzhitypes" hidden="{{item.baoming=='false'}}">已满</button>
+                    <button class="jianzhitypes tuiguan" hidden="{{item.tg==false}}">急招</button>
+                </view>
+                <text class="c fs32">{{item.xinzi}}{{item.f_danwei}}</text>
+            </view>
+        </view>
+    </view>
+</block>

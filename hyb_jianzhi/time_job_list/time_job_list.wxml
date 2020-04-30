@@ -1,0 +1,6 @@
+<my-broadcast broadcast="{{broadcast}}" hClass="h380"></my-broadcast>
+<view class="mt20 bgcf">
+    <my-sku-page binddetailBtn="timeJobDetailClick" none="{{none}}" wx:for="{{pageWrapCount}}" wx:key="unique"></my-sku-page>
+</view>
+<my-bottom bindtimeJobMore="timeJobMore"></my-bottom>
+<view class="pb50 mt20"></view>

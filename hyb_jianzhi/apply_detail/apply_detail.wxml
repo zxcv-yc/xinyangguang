@@ -1,0 +1,61 @@
+<view bindtap="applyDetailClick" class="bgcf bsbb p30 df aic jcsb bdb2">
+    <view class="df">
+        <view>
+            <image class="bdr" mode="aspectFill" src="{{img}}" style="width:98rpx;height:98rpx;"></image>
+        </view>
+        <view class="df fdc ml30">
+            <view class="fs30 c6">{{title}}</view>
+            <view>
+                <image mode="widthFix" src="../images/position.png" style="width:26rpx;"></image>
+                <text class="c28 fs24 fw3 ml10">{{position}}</text>
+                <text class="c28 fs24 fw3 ml30">{{pay}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="fs30 c fw3" wx:if="{{state==0}}">待录用</view>
+    <view class="fs30 c fw3" wx:if="{{state==1}}">已录用</view>
+    <view class="fs30 c fw3" wx:if="{{state==2}}">已到岗</view>
+    <view class="fs30 c fw3" wx:if="{{state==3}}">已结算</view>
+</view>
+<view class="mt20 bgcf bsbb p30">
+    <view class="h60">
+        <text class="c28 fs24 fw3 bdl4 pl30">兼职报名跟踪</text>
+    </view>
+    <view class="bsbb pt30 pb30 pl20 h182 pr df aic jcsb">
+        <view class="pa progress"></view>
+        <view class="pa progress active" style="width:16%;" wx:if="{{dState==1}}"></view>
+        <view class="pa progress active" style="width:38.5%;" wx:if="{{dState==2}}"></view>
+        <view class="pa progress active" style="width:59%;" wx:if="{{dState==3}}"></view>
+        <view class="pa progress active" style="width:79.5%;" wx:if="{{dState==4}}"></view>
+        <view class="pa progress active" style="width:95%;" wx:if="{{dState==5}}"></view>
+        <view class="df fdc jcc aic pr zi2">
+            <image mode="widthFix" src="{{dState>0?'../images/success_01.png':'../images/success_02.png'}}" style="width:77rpx;"></image>
+            <text class="fs26 fw3 mt20 {{dState>0?'c':'c28'}}">成功投递</text>
+        </view>
+        <view class="df fdc jcc aic pr zi2">
+            <image mode="widthFix" src="{{dState>1?'../images/success_01.png':'../images/success_02.png'}}" style="width:77rpx;"></image>
+            <text class="fs26 fw3 mt20 {{dState>1?'c':'c28'}}" wx:if="{{dState<=1}}">待查看</text>
+            <text class="fs26 fw3 mt20 {{dState>1?'c':'c28'}}" wx:if="{{dState>1}}">已查看</text>
+        </view>
+        <view class="df fdc jcc aic pr zi2">
+            <image mode="widthFix" src="{{dState>2?'../images/success_01.png':'../images/success_02.png'}}" style="width:77rpx;"></image>
+            <text class="fs26 fw3 mt20 {{dState>2?'c':'c28'}}" wx:if="{{dState<=2}}">待录用</text>
+            <text class="fs26 fw3 mt20 {{dState>2?'c':'c28'}}" wx:if="{{dState>2}}">已录用</text>
+        </view>
+        <view class="df fdc jcc aic pr zi2">
+            <image mode="widthFix" src="{{dState>3?'../images/success_01.png':'../images/success_02.png'}}" style="width:77rpx;"></image>
+            <text class="fs26 fw3 mt20 {{dState>3?'c':'c28'}}" wx:if="{{dState<=3}}">待工作</text>
+            <text class="fs26 fw3 mt20 {{dState>3?'c':'c28'}}" wx:if="{{dState>3}}">已工作</text>
+        </view>
+        <view class="df fdc jcc aic pr zi2">
+            <image mode="widthFix" src="{{dState>4?'../images/success_01.png':'../images/success_02.png'}}" style="width:77rpx;"></image>
+            <text class="fs26 fw3 mt20 {{dState>4?'c':'c28'}}" wx:if="{{dState<=4}}">待结算</text>
+            <text class="fs26 fw3 mt20 {{dState>4?'c':'c28'}}" wx:if="{{dState>4}}">已结算</text>
+        </view>
+    </view>
+    <view class="mt30 df aic bsbb pl30">
+        <image mode="widthFix" src="../images/cir.png" style="width:12rpx;"></image>
+        <text class="fs20 c fw3 ml10">2018-07-09 15:27</text>
+    </view>
+    <view class="mt15 df aic bsbb pl30 fs30 c6 fw4">您已经成功投递，请等待企业录用。</view>
+</view>

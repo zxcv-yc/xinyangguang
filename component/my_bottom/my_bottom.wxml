@@ -1,0 +1,5 @@
+<view class="line fs24 c9">
+  我也是有底线的啦~
+  <text bindtap="timeJobMore" class="c fs24" wx:if="{{a}}">点击查看其它兼职信息</text>
+  ~
+</view>

@@ -1,0 +1,89 @@
+<form bindsubmit="subClick">
+    <view class="df aic jcsb bsbb pl30 pr30 pt30 pb30 bgcf bdb2" wx:if="{{base.is_logo==1}}">
+        <view class="fs32 c6">商家LOGO</view>
+        <view bindtap="choosePhoto1">
+            <image class="bdr" mode="aspectFill" src="{{obj.logoImg?obj.logoImg:'../images/logo.png'}}" style="width:115rpx;height:115rpx;"></image>
+        </view>
+    </view>
+    <view class="df aic jcsb bsbb pl30 pr30 pt30 pb30 bgcf bdb2">
+        <view class="fs32 c6">商家名称</view>
+        <view class="w80">
+            <input class="tar fs24 c6" name="shopNames" placeholder="请输入商铺名称" placeholderClass="c12" value="{{shangjiainfo.s_name}}"></input>
+        </view>
+    </view>
+    <view class="df aic jcsb bsbb pl30 pr30 pt30 pb30 bgcf bdb2">
+        <view class="fs32 c6">商家名字</view>
+        <view class="w80">
+            <input class="tar fs24 c6" name="s_fzname" placeholder="请输入负责人名称" placeholderClass="c12" value="{{shangjiainfo.s_fzname}}"></input>
+        </view>
+    </view>
+    <view class="df aic jcsb bsbb pl30 pr30 pt30 pb30 bgcf bdb2">
+        <view class="fs32 c6">商家电话</view>
+        <view class="w80">
+            <input class="tar fs24 c6" maxlength="11" name="shopPhone" placeholder="请输入电话号" placeholderClass="c12" type="number" value="{{shangjiainfo.s_tel}}"></input>
+        </view>
+    </view>
+    <view class="df aic jcsb bsbb pl30 pr30 pt30 pb30 bgcf bdb2">
+        <view class="fs32 c6">商家微信</view>
+        <view class="w80">
+            <input class="tar fs24 c6" name="shopWeixin" placeholder="请输入微信号" placeholderClass="c12" type="text" value="{{shangjiainfo.s_weixin}}"></input>
+        </view>
+    </view>
+    <view class="df aic jcsb bsbb pl30 pr30 pt30 pb30 bgcf bdb2">
+        <view class="fs32 c6">商家QQ</view>
+        <view class="w80">
+            <input class="tar fs24 c6" maxlength="11" name="shopQQ" placeholder="请输入QQ号" placeholderClass="c12" type="number" value="{{shangjiainfo.s_qq}}"></input>
+        </view>
+    </view>
+    <view class="df aic jcsb bsbb pl30 pr30 pt30 pb30 bgcf bdb2">
+        <view class="fs32 c6">商家地址</view>
+        <view bindtap="choosePosition" class="w80 fs24 c12 tar" wx:if="{{!obj.position}}">请选择商家地址</view>
+        <view bindtap="choosePosition" class="w80 fs24 c6 tar" wx:else>{{obj.position}}</view>
+    </view>
+    <view class="mt20" wx:if="{{base.is_yyzz==1}}">
+        <view class="fs32 c6 bdb2 bsbb pl30 pr30 pt30 pb30 bgcf">上传执照</view>
+        <view class="df aic jcsa fs32 c6 bdb2 bsbb pl30 pr30 pt30 pb30 bgcf">
+            <image bindtap="choosePhoto2" mode="aspectFill" src="{{obj.zhizhao?obj.zhizhao:'../images/zhizhao.png'}}" style="width:259rpx;height:173rpx;"></image>
+            <image bindtap="choosePhoto3" mode="aspectFill" src="{{obj.zhengshu?obj.zhengshu:'../images/zhengshu.png'}}" style="width:259rpx;height:173rpx;"></image>
+        </view>
+    </view>
+    <view class="mt20" wx:if="{{base.is_idcard==1}}">
+        <view class="fs32 c6 bdb2 bsbb pl30 pr30 pt30 pb30 bgcf">上传身份证</view>
+        <view class="df aic jcsa fs32 c6 bdb2 bsbb pl30 pr30 pt30 pb30 bgcf">
+            <image bindtap="choosePhoto4" mode="aspectFill" src="{{obj.zhengmian?obj.zhengmian:'../images/zhengmian.png'}}" style="width:259rpx;height:173rpx;"></image>
+            <image bindtap="choosePhoto5" mode="aspectFill" src="{{obj.fanmian?obj.fanmian:'../images/fanmian.png'}}" style="width:259rpx;height:173rpx;"></image>
+        </view>
+    </view>
+    <view class="mt20">
+        <view class="fs32 c6 bdb2 bsbb pl30 pr30 pt30 pb30 bgcf">商家介绍</view>
+        <view class="fs32 c6 bdb2 bsbb pl30 pr30 pt30 pb30 bgcf">
+            <view class="df w">
+                <textarea class="w" name="shopIntroduce" placeholder="请填写商家介绍" placeholderClass="zI1" value="{{shangjiainfo.s_content}}"></textarea>
+            </view>
+            <view wx:if="{{base.is_jieshao==1}}">
+                <image bindlongtap="delPic" class="mr69 mb20" data-index="{{index}}" mode="aspectFill" src="{{item}}" style="width:184rpx;height:184rpx;" wx:for="{{imglist}}" wx:key="unique"></image>
+                <image bindtap="choosePhoto" mode="aspectFill" src="../images/upload.png" style="width:184rpx;height:184rpx;" wx:if="{{imglist.length<6||imglist==false}}"></image>
+            </view>
+        </view>
+    </view>
+    <view class="mt20 df fdc mb50 bsbb pl30 pr30">
+        <text class="fs30 c9">温馨提示 :</text>
+        <text class="fs24 c12">1.为保证您的认证顺利，请保证信息清晰可见.</text>
+        <text class="fs24 c12">2.此证件信息，只作为商家入驻申请认证，请放心上传.</text>
+        <text class="fs24 c12">3.学生领队上传营业执照处用学生证代替.</text>
+    </view>
+    <input hidden="true" name="thumb" value="{{obj.logoImg}}"></input>
+    <input hidden="true" name="yingyezhizhao" value="{{obj.zhizhao}}"></input>
+    <input hidden="true" name="zhengshu" value="{{obj.zhengshu}}"></input>
+    <input hidden="true" name="imagepath1" value="{{obj.zhengmian}}"></input>
+    <input hidden="true" name="imagepath2" value="{{obj.fanmian}}"></input>
+    <input hidden="true" name="loc_address" value="{{obj.position}}"></input>
+    <input hidden="true" name="loc_lon" value="{{latitude}}"></input>
+    <input hidden="true" name="loc_lat" value="{{longitude}}"></input>
+    <input hidden="true" name="ruzhu" value="{{base.dp_money}}"></input>
+    <input hidden="true;" name="typs" value="{{typs}}"></input>
+    <button class="bgc cf fs34 h88 w bdn" disabled="{{disabled}}" formType="submit" wx:if="{{typs=='ruzhu'}}">申请入驻</button>
+    <button class="bgc cf fs34 h88 w bdn" disabled="{{disabled}}" formType="submit" wx:elif="{{typs=='xiugai'}}">确认修改</button>
+    <view style="height: 95rpx;"></view>
+</form>
+<my-footer footdex="3"></my-footer>

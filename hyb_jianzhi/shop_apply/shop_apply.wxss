@@ -1,0 +1,93 @@
+page {
+    background-color: #fff;
+}
+
+.h88 {
+    height: 88rpx;
+    line-height: 88rpx;
+}
+
+.bdb4 {
+    border-bottom: 4rpx solid #ff644a;
+}
+
+.h60 {
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.btn-see {
+    width: 153rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.mt6 {
+    margin-top: 6rpx;
+}
+
+.shadebox {
+    position: relative;
+}
+
+.shade {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: rgba(230,69,74,0.6);
+    width: 98rpx;
+    height: 98rpx;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: 98rpx;
+    transform: translateY(-50%);
+}
+
+.imgtitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.touxiangimgs {
+    display: flex;
+    align-items: center;
+}
+
+.touxiangimgs image {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    margin-left: 10rpx;
+}
+
+.jianzhibiaoqian {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+}
+
+.jianzhibiaoqian text {
+    padding: 3rpx 10rpx;
+    border: 1rpx solid #ff644a;
+    color: #ff644a;
+    border-radius: 5rpx;
+    margin-right: 10rpx;
+    font-size: 20rpx;
+}
+
+button {
+    width: 100%;
+    height: 100%;
+    border-radius: 0rpx;
+    padding: 0;
+}
+
+button::after {
+    border: none;
+}
+
+.radius {
+    border-radius: 6rpx;
+}

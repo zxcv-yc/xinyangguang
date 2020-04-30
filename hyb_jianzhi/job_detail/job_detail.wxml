@@ -1,0 +1,242 @@
+<view class="fs32 c6  pr mt50 h88" wx:if="{{showGzh}}">
+    <text class="bdl4 pl30">关注公众号获取更多兼职信息</text>
+</view>
+<official-account bindload="offload" binderror="offerror" ></official-account>
+<view class="zhezhao" wx:if="{{close}}">
+  <view class="zhetxt">你的账号被限制了访问，请及时联系管理员处理，您的用户id为
+    <text style="color:red;font-size:34rpx;">{{u_id}}</text>
+  </view>
+</view>
+<loading hidden="{{loading==false}}">正在加载</loading>
+<view class="bsbb pl30 pr30 pt30" hidden="{{loading==true}}">
+  <view class="c6 fs34 fw6">{{jianzhi_infoxq['f_name']}}
+    <image class="bdr" mode="aspectFill" src="{{jianzhi_infoxq.thumb}}" style="width:40rpx;height:40rpx;margin-left:10rpx;"></image>
+    <image class="imgSizes" mode="aspectFill" src="/hyb_jianzhi/images/vip.png" wx:if="{{jianzhi_infoxq.hy=='true'}}"></image>
+    <image class="imgSizes" mode="aspectFill" src="/hyb_jianzhi/images/renzhen.png"></image>
+  </view>
+  <view class="wages">
+    <view>
+      <view class="fs30 c mt20">{{jianzhi_infoxq['f_xinzi']}}{{jianzhi_infoxq['f_danwei']}}</view>
+    </view>
+    <!-- <view class="wagesColor" wx:if="{{jianzhi_infoxq.f_huiyuan!=null}}">会员薪资：{{jianzhi_infoxq.f_huiyuan}}{{jianzhi_infoxq['f_danwei']}}</view>
+        <view class="wagesColor" wx:else>会员薪资：未设置</view> -->
+  </view>
+  <view class="fs24 c9 fw3 mt30">
+    <text>{{jianzhi_infoxq['f_jianzhitype']}}</text>
+    <text class="ml20">|</text>
+    <text class="ml20">{{jianzhi_infoxq['f_jianzhistyle']}}</text>
+    <text class="ml20">|</text>
+    <text class="ml20">{{jianzhi_infoxq['f_jianzhizhonglei']}}</text>
+  </view>
+  <view class="fs24 c9 fw3 mt30 liutiles">
+    <view>发布时间：{{jianzhi_infoxq['f_time']}}</view>
+    <view>浏览量：{{jianzhi_infoxq['liulan']}}</view>
+  </view>
+  <view class="fs24 c9 fw3 mt30 liutiles">
+    <view>工作周期:{{jianzhi_infoxq['f_gzdate1']}}--{{jianzhi_infoxq['f_gzdate2']}}</view>
+    <view></view>
+  </view>
+  <view class="fs32 c6 line pr mt50 h88">
+    <text class="bdl4 pl30">招聘要求</text>
+  </view>
+  <view class="fs28 mt30">
+    <text class="c9">结算周期：</text>
+    <text class="c6">{{jianzhi_infoxq['f_jiesuan']}}</text>
+  </view>
+  <!-- <view class="fs28 mt20">
+    <text class="c9">招聘人数/剩余人数：</text>
+    <text class="c6">{{jianzhi_infoxq['f_renshu']}}/{{jianzhi_infoxq['shengyu']}}  <text style='color:#FF0200'>抓紧了哦，名额不多了~</text> </text>
+  </view> -->
+  <view class="fs28 mt20">
+    <text class="c9">要求：</text>
+    <text class="c6">{{jianzhi_infoxq['f_sex']}}</text>
+  </view>
+  <view class="fs28 mt20">
+    <text class="c9">上班时段：</text>
+    <text class="c6">{{jianzhi_infoxq['worktime']}}</text>
+  </view>
+  <view class="fs28 mt20">
+    <text class="c9">上班地点：</text>
+    <text class="c6">{{jianzhi_infoxq['f_address']}}</text>
+  </view>
+  <!-- <view class="fs28 mt20">
+    <text class="c9">工作周期：</text>
+    <text class="c6">{{jianzhi_infoxq['f_gzdate1']}}--{{jianzhi_infoxq['f_gzdate2']}}</text>
+  </view> -->
+  <view class="fs28 mt20" wx:if="{{deposit != ''}}">
+    <text class="c9">报名押金：</text>
+    <text class="c6">{{deposit}}元，确认到岗后可解冻提现</text>
+  </view>
+  <view class="fs28 mt20" wx:if="{{jianzhi_infoxq['daiyu'] != ''}}">
+    <text class="c9">福利待遇：</text>
+    <text class="c6">{{jianzhi_infoxq['daiyu']}}</text>
+  </view>
+  <view class="fs28 mt20" wx:if="{{jianzhi_infoxq['beizhu'] != ''}}">
+    <text class="c9">备注:</text>
+    <text class="c6">{{jianzhi_infoxq['beizhu']}}</text>
+  </view>
+
+  <view class="fs32 c6 line pr mt50 h88">
+    <text class="bdl4 pl30">机构信息</text>
+  </view>
+  <view class="mt30 bgceb bdr20 df aic bsbb p30">
+    <view class="df aic">
+      <image class="bdr" mode="widthFix" src="{{jianzhi_infoxq['logo']}}" style="width:114rpx;height:114rpx;"></image>
+    </view>
+    <view class="df fdc fs28 c6 fw3 ml30">
+      <text>{{jianzhi_infoxq['gongsi']}}</text>
+      <text class="mt15">联系人：{{jianzhi_infoxq['lianxi']}}</text>
+      <text bindtap="callPhone" class="mt15" data-phone="{{jianzhi_infoxq['lianxidianhua']}}" wx:if="{{jianzhi_infoxq.jianzhibao=='true'}}">联系号码(点击拨打)：{{jianzhi_infoxq['lianxidianhua']}}</text>
+      <text class="mt15" wx:if="{{jianzhi_infoxq.jianzhibao=='false'}}">联系号码：*********** <text style="color:#ff644a;">需录用后查看</text>
+      </text>
+      <text bindtap="copyBtn" class="mt15" data-title="{{jianzhi_infoxq['s_weixin']}}" wx:if="{{jianzhi_infoxq.jianzhibao=='true'}}">联系微信(点击复制)：{{jianzhi_infoxq['s_weixin']}}</text>
+      <text class="mt15" wx:if="{{jianzhi_infoxq.jianzhibao=='false'}}">联系微信：*********** <text style="color:#ff644a;">需录用后查看</text>
+      </text>
+      <text bindtap="copyBtn" class="mt15" data-title="{{jianzhi_infoxq['s_qq']}}" wx:if="{{jianzhi_infoxq.jianzhibao=='true'}}">联系QQ(点击复制)：{{jianzhi_infoxq['s_qq']}}</text>
+      <text class="mt15" wx:if="{{jianzhi_infoxq.jianzhibao=='false'}}">联系QQ：*********** <text style="color:#ff644a;">需录用后查看</text>
+      </text>
+    </view>
+  </view>
+
+
+  <view class="fs32 c6 line pr mt50 h88">
+    <text class="bdl4 pl30">工作描述</text>
+  </view>
+  <view class="df fdc fs28 c6 fw3 pre">{{jianzhi_infoxq['f_content']}}</view>
+
+
+
+  <view class="fs32 c6 line pr mt50 h88">
+    <text class="bdl4 pl30">工作地点</text>
+  </view>
+  <form bindsubmit="seeLoaction" reportSubmit="true">
+    <button class="mt30 pr df aic jcc" data-address="{{jianzhi_infoxq.f_address}}" data-latitude="{{jianzhi_infoxq.f_lat}}" data-longitude="{{jianzhi_infoxq.f_lon}}" formType="submit">
+      <image mode="widthFix" src="../images/position_01.png"></image>
+      <view class="pa df aic jcsa p_bg bgcf bsbb pl10 pr10">
+        <image mode="widthFix" src="../images/position_02.png" style="width:20rpx;"></image>
+        <text class="fs24 c6 fw3">点击查看地图</text>
+        <image mode="widthFix" src="../images/right.png" style="width:10rpx;"></image>
+      </view>
+    </button>
+  </form>
+
+  <view class="fs32 c6 line pr mt50 h88">
+    <text class="bdl4 pl30">免责声明</text>
+  </view>
+  <view class="aic bsbb">
+    <view class="c9 fs28">未标明收费的岗位不会收取任何费用，若商家线下要求缴纳费用或押金，请提高警惕，谨防上当受骗，并第一时间向我们举报！举报电话：{{jianzhi_infoxq['jb_tel']}}</view>
+    <view class="c9 fs28">工作过程中，请您注意人身安全，保管好自己的财物。祝工作愉快！</view>
+  </view>
+  <my-bottom bindtimeJobMore="timeJobMore"></my-bottom>
+</view>
+<view class="fs32 c6 line pr mt50 h88" wx:if="{{list.length>0}}">
+  <text class="bdl4 pl30">热门兼职</text>
+</view>
+<view bindtap="timeJobDetailClick" class="bsbb shoucang df bgcf average" data-gq="{{item.gq}}" data-j_id="{{item.f_id}}" wx:for="{{list}}" wx:key="unique">
+  <image class="imgSize" src="{{item.thumb}}"></image>
+  <view class="w distance">
+    <view class="df aic listtitle">
+      <view class="fs32 c6">
+        {{item.f_name}}
+      </view>
+      <view>
+        <image class="imgSizes" mode="aspectFill" src="/hyb_jianzhi/images/vip.png" wx:if="{{item.hy=='true'}}"></image>
+        <image class="imgSizes" mode="aspectFill" src="/hyb_jianzhi/images/renzhen.png"></image>
+      </view>
+    </view>
+    <view class="df aife fs24 c9 lh1 mt10 fenbu">
+      <view>
+        <view class="df aife">
+          <image mode="widthFix" src="/hyb_jianzhi/images/position.png" style="width:25rpx;"></image>
+          <view class="ml10 fw3" wx:if="{{item.dz==null}}">{{item.f_address}}
+            <text class="ml15">{{item.juli}}km</text>
+          </view>
+          <view class="ml10 fw3" wx:else>{{item.dz}}
+            <text class="ml15">{{item.juli}}km</text>
+          </view>
+        </view>
+        <view class="df aife mt10 listzhiye">
+          <image mode="widthFix" src="/hyb_jianzhi/images/data.png" style="width:25rpx;"></image>
+          <view class="ml10 fw3">{{item.f_gzdate1}}--{{item.f_gzdate2}}</view>
+        </view>
+      </view>
+      <view class="fs24 c6" style="height: 30rpx;">{{item.fatime}}</view>
+    </view>
+    <view class="df jcsb mt15 listzhuangtai">
+      <view class="df jcsb">
+        <button class="jianzhitypes" style="margin-right:10rpx;">{{item.f_jianzhistyle}}</button>
+        <button class="jianzhitypes jiesuan" style="margin-right:10rpx;">{{item['f_jiesuan']}}</button>
+        <button class="jianzhitypes tuiguan" style="margin-right:10rpx;" wx:if="{{item.f_tuijian=='1'}}">置顶</button>
+        <button class="jianzhitypes" hidden="{{item.baoming=='false'}}">已满</button>
+        <button class="jianzhitypes tuiguan" hidden="{{item.tg==false}}">急招</button>
+      </view>
+      <text class="c fs32">{{item.xinzi}}{{item.f_danwei}}</text>
+    </view>
+  </view>
+</view>
+<view class="pb100"></view>
+<view class="pf df bdt2 w bgcf h98">
+  <view class="c fs32 df aic jcc w50">
+    <form bindsubmit="backindex" reportSubmit="true" style="width:33.3%;border-right:2rpx solid #888;">
+      <button formType="submit">
+        <view class="">
+          <image mode="widthFix" src="../images/shouye.png" style="width:40rpx;height40rpx;"></image>
+          <view style="font-size:20rpx;">返回首页</view>
+        </view>
+      </button>
+    </form>
+    <form bindsubmit="collect" data-f_id="{{jianzhi_infoxq['f_id']}}" reportSubmit="true" style="width:33.3%;border-right:2rpx solid #888;">
+      <button formType="submit">
+        <view class="">
+          <image mode="widthFix" src="../images/{{sc?'sct':'scf'}}.png" style="width:40rpx;height40rpx;"></image>
+          <view style="font-size:20rpx;">收藏</view>
+        </view>
+      </button>
+    </form>
+    <form bindsubmit="haibaosc" reportSubmit="true" style="width:33.3%;">
+      <button class="" formType="submit" hoverClass="none">
+        <image mode="widthFix" src="../images/share.png" style="width:35rpx;height40rpx;"></image>
+        <view style="font-size:20rpx;">分享赚钱</view>
+      </button>
+    </form>
+  </view>
+  <form bindsubmit="sendClick" data-baoming="{{jianzhi_infoxq.baoming}}" data-f_id="{{jianzhi_infoxq.f_id}}" data-f_openid="{{jianzhi_infoxq['f_openid']}}" data-sex="{{jianzhi_infoxq.f_sex}}" data-yibao="{{jianzhi_infoxq.baomingnum}}" data-zhao="{{jianzhi_infoxq.f_renshu}}"
+    reportSubmit="true" style="width: 50%;height: 100%;">
+    <button formType="submit" style="width: 100%;height: 100%;">
+      <view class="df fdc aic jcc bgc h w50 ls4" style="width: 100%;height: 100%;">
+        <view class="fs32 cf">我要报名</view>
+        <view class="fs18 cf fw3 mt5">({{jianzhi_infoxq.baomingnum}}人已报名）</view>
+      </view>
+    </button>
+  </form>
+</view>
+<view catchtouchmove="disscroll" class="showmodal" hidden="{{haibao}}">
+  <form bindsubmit="closemodal" reportSubmit="true">
+    <button class="emptymodal" formType="submit"></button>
+  </form>
+  <view class="modalbtns" hidden="{{shengchengewm==false}}" style="width:{{widths}}px">
+    <view>好友推荐</view>
+    <view>
+      <button hoverClass="none" openType="share" style="background:#fff;line-height: 2.5rem;">分享给好友</button>
+      <form bindsubmit="ewmshare" class="baocunfen" reportSubmit="true">
+        <button formType="submit" hoverClass="none" style="background:#fff;width:100%;border:none;">保存二维码分享</button>
+      </form>
+    </view>
+  </view>
+  <view class="modalbtns" hidden="{{shengchengewm==true}}" style="width:{{widths}}px">
+    <canvas bindlongpress="sc2" canvasId="mycanvas" style="width:{{widths}}px;height:{{heigths}}px;"></canvas>
+  </view>
+</view>
+<view catchtouchmove="true" class="mask" wx:if="{{getUseInfo}}">
+  <view class="shouquan bdr20 bgcf">
+    <view class="shouquan-img">
+      <image mode="widthFix" src="../images/shouquan.png"></image>
+    </view>
+    <view class="df fww jcc aic mt20 c6 fs30 shouquan-con">请同意获取您的头像、昵称等信息</view>
+    <view class="button">
+      <button bindgetuserinfo="onGotUserInfo"  class="tongyi bgc cf" lang="zh_CN" openType="getUserInfo" style="width:50%;float:left;" >同意</button>
+    <button bindtap="cancel" class="cancle bgc cf" lang="zh_CN" style="width:50%;float:left;" >取消</button>
+    </view>
+    
+  </view>
+</view>

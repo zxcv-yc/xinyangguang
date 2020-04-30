@@ -1,0 +1,16 @@
+page{
+  background-color: white;
+  padding: 20rpx 10rpx;
+}
+
+.container{
+  width: 96%;
+  margin: 20rpx 2%;
+  color: #495060;
+}
+.title{
+  width: 100%;
+  text-align: center;
+  font-size: 50rpx;
+  color: #1c2438;
+}

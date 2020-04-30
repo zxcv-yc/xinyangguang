@@ -1,0 +1,13 @@
+<view class="container">
+    <view class="circle-father">
+        <form bindsubmit="formSubmit" class="form" reportSubmit="true">
+            <view class="circle-son">
+                <button class="button" formType="submit" openType="getUserInfo">体验</button>
+            </view>
+        </form>
+    </view>
+    <view class="remind">
+        <text>点击按钮，获取Demo体验次数</text>
+    </view>
+    <view class="tip_msg" wx:if="{{isShowtip}}"> {{tip}} </view>
+</view>

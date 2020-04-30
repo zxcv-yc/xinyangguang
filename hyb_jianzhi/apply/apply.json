@@ -1,0 +1,11 @@
+{
+    "navigationBarBackgroundColor": "#ff644a",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "我的申请",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "my-none": "/component/my_none/my_none",
+        "my-bottom": "/component/my_bottom/my_bottom"
+    }
+}

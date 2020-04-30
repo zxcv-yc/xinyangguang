@@ -1,0 +1,20 @@
+<block wx:if="{{list.length!=0}}">
+    <view class="bsbb pl30 pr30 pt30 pb30 mb20 bgcf" wx:for="{{list}}">
+        <view class="df aic jcc fs32 c6">{{item.p_jianzhiname}}</view>
+        <view class="fs32 c6 df aic mt10">
+            <view class="bgceb df aic jcc bdr50" style="width:68rpx;height68rpx;">
+                <image class="bdr" mode="aspectFill" src="{{item.p_thumb}}" style="width:64rpx;height:64rpx;"></image>
+            </view>
+            <view class="ml20">{{item.p_name}}</view>
+        </view>
+        <view class="fs28 c6 mt10">{{item.p_content}}</view>
+        <view class="fs22 c9 df jcfe mt10">{{item.p_time}}</view>
+        <view bindtap="showClick" class="fs22 c6 df jcfe mt10" data-hid="{{item.p_id}}" wx:if="{{item.hui=='false'}}">回复</view>
+        <view class="fs26 c6 mt10" wx:if="{{item.hui=='true'}}">我的回复: {{item.h_content}}</view>
+    </view>
+</block>
+<my-none none="{{none}}" wx:if="{{list.length==0||list==null}}"></my-none>
+<view class="pf liao-footer df h88 bgcf aic bsbb pr15" hidden="{{hidden}}">
+    <input bindinput="inputClick" class="ml15 mr15 liao-input c6 fs26 bsbb bdr50 pr28 pl28" confirmHold="true" confirmType="send" cursorSpacing="12" focus="{{focus}}" id="a" maxlength="-1" placeholder="想对他说点什么" placeholderClass="c9" value="{{value}}"></input>
+    <input bindtap="faClick" class="fa-btn bgc cf fs26 bdr20 tac" value="发送"></input>
+</view>

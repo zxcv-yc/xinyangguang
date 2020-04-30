@@ -1,0 +1,197 @@
+<view class="my_bg bgc df fdc jcsb">
+    <view class="mt20 df fdc aic jcc">
+        <view class="header_bg df aic jcc bdr">
+            <image class="bdr" mode="aspectFill" src="{{userinfo.u_thumb}}" style="width:110rpx;height:110rpx;"></image>
+        </view>
+        <view class="fs26 mt15 mb10 cf fw3" wx:if="{{userinfo.u_bname==null}}">{{userinfo.u_name}}</view>
+        <view class="fs26 mt15 mb10 cf fw3" wx:if="{{userinfo.u_bname!=null}}">{{userinfo.u_bname}}</view>
+        <view>
+            <form bindsubmit="editClick" reportSubmit="true">
+                <button class="bdn bdcf cf fs24 fw3" formType="submit" wx:if="{{userinfo.u_typs!='待审核'}}">编辑简历</button>
+            </form>
+        </view>
+        <view>
+            <button class="bdn bdcf cf fs24 fw3" wx:if="{{userinfo.u_typs=='待审核'}}">审核中</button>
+        </view>
+    </view>
+    <view>
+        <image mode="widthFix" src="../images/my_bg.png"></image>
+    </view>
+</view>
+<view class="bgcf bsbb pl30 pr30 df jcsa paddingNav">
+    <!-- <form bindsubmit="applyClick" data-index="0" reportSubmit="true">
+        <button class="df fdc aic jcc" formType="submit" style="background:#fff;">
+            <image mode="widthFix" src="../images/icon_05.png" style="width:75rpx;height:75rpx;"></image>
+            <text class="fs24 fs3 c6 mt10 df">待录用</text>
+        </button>
+    </form> -->
+    <form bindsubmit="applyClick" data-index="0" reportSubmit="true">
+        <button class="df fdc aic jcc" formType="submit" style="background:#fff;">
+            <image mode="widthFix" src="../images/icon_06.png" style="width:75rpx;height:75rpx;"></image>
+            <text class="fs24 fs3 c6 mt10 df">已录用</text>
+        </button>
+    </form>
+    <form bindsubmit="applyClick" data-index="1" reportSubmit="true">
+        <button class="df fdc aic jcc" formType="submit" style="background:#fff;">
+            <image mode="widthFix" src="../images/icon_07.png" style="width:75rpx;height:75rpx;"></image>
+            <text class="fs24 fs3 c6 mt10 df">已到岗</text>
+        </button>
+    </form>
+
+    <form bindsubmit="applyClick" data-index="2" reportSubmit="true">
+        <button class="df fdc aic jcc" formType="submit" style="background:#fff;">
+            <image mode="widthFix" src="../images/icon_13.png" style="width:75rpx;height:75rpx;"></image>
+            <text class="fs24 fs3 c6 mt10">待结算</text>
+        </button>
+    </form>
+
+    <form bindsubmit="applyClick" data-index="3" reportSubmit="true">
+        <button class="df fdc aic jcc" formType="submit" style="background:#fff;">
+            <image mode="widthFix" src="../images/icon_08.png" style="width:75rpx;height:75rpx;"></image>
+            <text class="fs24 fs3 c6 mt10 df">已结算</text>
+        </button>
+    </form>
+
+    <form bindsubmit="applyClick" data-index="4" reportSubmit="true">
+        <button class="df fdc aic jcc" formType="submit" style="background:#fff;">
+            <image mode="widthFix" src="../images/icon_05.png" style="width:75rpx;height:75rpx;"></image>
+            <text class="fs24 fs3 c6 mt10 df">已误工</text>
+        </button>
+    </form>
+</view>
+<view class="mt20 df fdc bgcf">
+    <form bindsubmit="walletClick" reportSubmit="true" >
+        <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" formType="submit">
+            <view>
+                <image mode="widthFix" src="../images/icon_09.png" style="width:30rpx;"></image>
+                <text class="fs28 fw3 c6 ml20">我的钱包</text>
+            </view>
+            <view>
+                <text class="yueshow">￥{{userinfo.u_money >=0 ? userinfo.u_money : 0 }}</text>
+                <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+            </view>
+        </button>
+    </form>
+    <!-- <form bindsubmit="shopClick" reportSubmit="true" wx:if="{{base.dp_type==1&&userinfo.shangjia==2}}">
+        <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" formType="submit">
+            <view>
+                <image mode="widthFix" src="../images/icon_14.png" style="width:30rpx;"></image>
+                <text class="fs28 fw3 c6 ml20">商家中心</text>
+            </view>
+            <view>
+                <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+            </view>
+        </button>
+    </form> -->
+    <form bindsubmit="shopClickManager" reportSubmit="true" wx:if="{{isMgmt}}">
+        <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" formType="submit">
+            <view>
+                <image mode="widthFix" src="../images/icon_14.png" style="width:30rpx;"></image>
+                <text class="fs28 fw3 c6 ml20">管理中心</text>
+            </view>
+            <view>
+                <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+            </view>
+        </button>
+    </form>
+    <!-- <form bindsubmit="shopClick2" reportSubmit="true" wx:if="{{base.dp_type==1&&userinfo.shangjia==1}}">
+        <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" formType="submit">
+            <view>
+                <image mode="widthFix" src="../images/icon_14.png" style="width:30rpx;"></image>
+                <text class="fs28 fw3 c6 ml20">商家中心</text>
+            </view>
+            <view>
+                <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+            </view>
+        </button>
+    </form> -->
+    <!-- <form bindsubmit="shopClick3" reportSubmit="true" wx:if="{{base.dp_type==1&&userinfo.shangjia==0}}">
+        <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" formType="submit">
+            <view>
+                <image mode="widthFix" src="../images/icon_14.png" style="width:30rpx;"></image>
+                <text class="fs28 fw3 c6 ml20">商家中心</text>
+            </view>
+            <view>
+                <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+            </view>
+        </button>
+    </form> -->
+    <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" openType="contact" sessionFrom="{\"nickName\":\"{{userinfo.u_name}}\",\"avatarUrl\":\"{{userinfo.u_thumb}}\"}">
+        <view>
+            <image mode="widthFix" src="../images/icon_15.png" style="width:30rpx;"></image>
+            <text class="fs28 fw3 c6 ml20">在线客服</text>
+        </view>
+        <view>
+            <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+        </view>
+    </button>
+    <form bindsubmit="callPhone" data-phone="{{base.kefu}}" reportSubmit="true">
+        <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" formType="submit">
+            <view>
+                <image mode="widthFix" src="../images/icon_15.png" style="width:30rpx;"></image>
+                <text class="fs28 fw3 c6 ml20">电话客服</text>
+            </view>
+            <view>
+                <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+            </view>
+        </button>
+    </form>
+    <form bindsubmit="collect" reportSubmit="true">
+        <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" formType="submit">
+            <view>
+                <image mode="widthFix" src="../images/collect.png" style="width:30rpx;"></image>
+                <text class="fs28 fw3 c6 ml20">我的收藏</text>
+            </view>
+            <view>
+                <text class="yueshow">{{userinfo.shoucangshu}}</text>
+                <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+            </view>
+        </button>
+    </form>
+    <form bindsubmit="sell" reportSubmit="true">
+        <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" formType="submit" >
+        <!-- <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" formType="submit" wx:if="{{idcard}}"> -->
+            <view>
+                <image mode="widthFix" src="../images/sell.png" style="width:30rpx;"></image>
+                <text class="fs28 fw3 c6 ml20">分享赚钱</text>
+            </view>
+            <view>
+                <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+            </view>
+        </button>
+    </form>
+    <form bindsubmit="myPingClick" reportSubmit="true">
+        <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" formType="submit">
+            <view>
+                <image mode="widthFix" src="../images/sell.png" style="width:30rpx;"></image>
+                <text class="fs28 fw3 c6 ml20">我的评价</text>
+            </view>
+            <view>
+                <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+            </view>
+        </button>
+    </form>
+    <!-- <form bindsubmit="addvip" reportSubmit="true">
+        <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" formType="submit">
+            <view>
+                <image mode="widthFix" src="../images/addvip.png" style="width:30rpx;"></image>
+                <text class="fs28 fw3 c6 ml20">VIP特权申请</text>
+            </view>
+            <view>
+                <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+            </view>
+        </button>
+    </form> -->
+    <form bindsubmit="help" reportSubmit="true">
+        <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" formType="submit">
+            <view>
+                <image mode="widthFix" src="../images/addvip.png" style="width:30rpx;"></image>
+                <text class="fs28 fw3 c6 ml20">使用帮助</text>
+            </view>
+            <view>
+                <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+            </view>
+        </button>
+    </form>
+</view>
+<my-footer footdex="4"></my-footer>

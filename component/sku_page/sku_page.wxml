@@ -1,0 +1,1 @@
+<my-sku-list binddetailBtn="detailClick" keArr="{{keArr}}" none="{{none}}"></my-sku-list>

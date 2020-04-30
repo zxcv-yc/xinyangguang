@@ -1,0 +1,24 @@
+.bdl4 {
+    border-left: 4rpx solid #ff644a;
+}
+
+.h182 {
+    height: 182rpx;
+}
+
+.progress {
+    top: 36%;
+    left: 35rpx;
+    width: 95%;
+    height: 6rpx;
+    background-color: #eee;
+    z-index: 0;
+}
+
+.progress.active {
+    background-color: #ff644a;
+}
+
+.zi2 {
+    z-index: 2;
+}

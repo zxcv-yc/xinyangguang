@@ -1,0 +1,62 @@
+.container{
+  padding: 20rpx 20rpx;
+}
+.gongzi{
+  width: 100%;
+  height: 200rpx;
+  /* background-color: #FF4E39; */
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 2rpx solid white;
+  /* color: white; */
+}
+.yajin{
+  width: 100%;
+  height: 200rpx;
+  /* background-color: #FF4E39; */
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2rpx solid white;
+  /* color: white; */
+}
+.lingqu{
+  margin-top: 20rpx;
+  background-color: #FF4E39;
+  color: white;
+}
+.select{
+  border: 2rpx solid #FF4E39;
+}
+.qcode{
+  width: 100%;
+  height: 400rpx;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.qcode image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.qcode view{
+  margin-top: 10rpx;
+  color: #808695;
+  font-size: 30rpx;
+  width: 550rpx;
+}
+.tishi{
+  color: #808695;
+  font-size: 30rpx;
+}
+.yq{
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+  color: #495060;
+}

@@ -1,0 +1,23 @@
+<view class="userInfo">
+  <text>我是{{user.u_bname}},{{userAge}}岁,{{user.u_sex}}</text>
+</view>
+<form bindsubmit="subClick" reportSubmit="true">
+  <view class="timetitle">请选择要工作的日期</view>
+  <scroll-view scroll-y style="height: 400px;" >
+  <checkbox-group bindchange="selectWorkDate">
+    <label class="checkbox" wx:for="{{worktime}}">
+      <checkbox value="{{item.date}}" />{{item.date}}   已报名:{{item.count}}人
+    </label>
+  </checkbox-group>
+  </scroll-view>
+  <!--<view class="specialty">
+         <textarea bindinput="inputClick" maxlength="140" name="youdian" placeholder="输入自己的优点，特点和上班时间等，能提高被录用的几率哦哦~注意不要跟其他兼职有冲突哦~"></textarea>
+        <text class="input-info">{{index}}/140</text> 
+    </view>-->
+  <view class="confirm-btn">
+    <input hidden="true" name="b_id" value="{{f_id}}"></input>
+    <input hidden="true" name="opeid" value="{{openid}}"></input>
+    <button formType="submit" wx:if="{{toggle}}">确定</button>
+    <button class="huise" wx:else>确定</button>
+  </view>
+</form>

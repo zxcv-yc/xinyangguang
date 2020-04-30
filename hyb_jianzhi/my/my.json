@@ -1,0 +1,9 @@
+{
+    "navigationBarBackgroundColor": "#ff644a",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "个人中心",
+    "backgroundTextStyle": "light",
+    "usingComponents": {
+        "my-footer": "/component/my_footer/my_footer"
+    }
+}

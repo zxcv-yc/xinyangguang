@@ -1,0 +1,342 @@
+<view class="zhezhao" wx:if="{{close}}">
+    <view class="zhe_main">
+        <view>
+      你的账号被限制了访问，请及时联系管理员处理，您的商户id为
+      <text style="color:red;font-size:28rpx;">{{s_id}}</text>
+        </view>
+        <view>
+            <text style="color:red;font-size:28rpx;">封号原因：</text> {{shangjiainfo.sf_content}}
+    </view>
+        <view>
+            <button hoverClass="" openType="contact" sessionFrom="{\"nickName\":\"{{shangjiainfo.s_name}}\",\"avatarUrl\":\"{{shangjiainfo.s_thumb}}\"}">
+        在线客服
+      </button>
+        </view>
+    </view>
+</view>
+<form bindsubmit="subClick" reportSubmit="true">
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">职位名称</text>
+        </view>
+        <view class="df aic w70">
+            <input class="fs28 c28 tar" name="jobName" placeholder="请输入职位名称" placeholderClass="fw3" value="{{f_name}}"></input>
+            <image class="ml10 opacity" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2 mt20">
+        <view class="w30">
+            <text class="fs32 c6">兼职类目</text>
+        </view>
+        <view class="df aic jcfe w70">
+            <picker bindchange="bindPickerChange_jz" name="index_j" range="{{array_jz}}" value="{{array_jz[index_j]}}">
+                <view class="fs28 c28 fw3" wx:if="{{index_j==''}}">
+          请选择兼职类型
+        </view>
+                <view class="picker" wx:else>
+                    <form bindsubmit="submitformid" reportSubmit="true">
+                        <button class="fs28 c28" formType="submit">
+              {{array_jz[index_j]}}
+            </button>
+                    </form>
+                </view>
+            </picker>
+            <image class="ml10" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">职位类型</text>
+        </view>
+        <view class="df aic jcfe w70">
+            <picker bindchange="bindPickerChange" name="jobTypes" range="{{array}}" value="{{array[index]}}">
+                <view class="fs28 c28 fw3" wx:if="{{index==''}}">
+          请选择职位类型
+        </view>
+                <view class="picker" wx:else>
+                    <form bindsubmit="submitformid" reportSubmit="true">
+                        <button class="fs28 c28" formType="submit">
+              {{array[index]}}
+            </button>
+                    </form>
+                </view>
+            </picker>
+            <image class="ml10" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2 mt20">
+        <view class="w30">
+            <text class="fs32 c6">结算类型</text>
+        </view>
+        <view class="df aic jcfe w70">
+            <picker bindchange="bindTypesChange_js" name="js_types" range="{{js_typesArr}}" value="{{js_typesArr[js_types]}}">
+                <view class="fs28 c28 fw3" wx:if="{{js_types==''}}">
+          请选择结算类型
+        </view>
+                <view class="picker" wx:else>
+                    <form bindsubmit="submitformid" reportSubmit="true">
+                        <button class="fs28 c28" formType="submit">
+              {{js_typesArr[js_types]}}
+            </button>
+                    </form>
+                </view>
+            </picker>
+            <image class="ml10" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">职位工资</text>
+        </view>
+        <view class="df aic w70">
+            <input bindchange="bindXinChange" class="fs28 c28 tar" name="jobPay" placeholder="请输入职位工资" placeholderClass="fw3" type="number" value="{{xinzi}}"></input>
+            <image class="ml10 opacity" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">会员工资</text>
+        </view>
+        <view class="df aic w70">
+            <input bindchange="bindHuiChange" class="fs28 c28 tar" name="jobHui" placeholder="请输入会员工资" placeholderClass="fw3" type="number" value="{{huiyuan}}"></input>
+            <image class="ml10 opacity" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">一级返佣</text>
+        </view>
+        <view class="df aic w70">
+            <input bindchange="bindoneChange" class="fs28 c28 tar" name="one" placeholder="请输入小数" placeholderClass="fw3" type="text" value="{{one}}"></input>
+            <image class="ml10 opacity" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">二级返佣</text>
+        </view>
+        <view class="df aic w70">
+            <input bindchange="bindtwoChange" class="fs28 c28 tar" name="two" placeholder="请输入小数" placeholderClass="fw3" type="text" value="{{two}}"></input>
+            <image class="ml10 opacity" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">金额单位</text>
+        </view>
+        <view class="df aic jcfe w70">
+            <picker bindchange="bindDanChange" name="danwei" range="{{danwei}}" value="{{danwei[index_dan]}}">
+                <view class="fs28 c28 fw3" wx:if="{{index_dan==''}}">
+          请选择金额单位
+        </view>
+                <view class="picker" wx:else>
+                    <form bindsubmit="submitformid" reportSubmit="true">
+                        <button class="fs28 c28" formType="submit">
+              {{danwei[index_dan]}}
+            </button>
+                    </form>
+                </view>
+            </picker>
+            <image class="ml10 opacity" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">招聘人数</text>
+        </view>
+        <view class="df aic w70">
+            <input bindinput="renshuinput" class="fs28 c28 tar" name="jobNum" placeholder="请输入招聘人数" placeholderClass="fw3" type="number" value="{{per_num}}"></input>
+            <image class="ml10 opacity" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">性别要求</text>
+        </view>
+        <view class="df aic jcfe w70">
+            <picker bindchange="bindSexChange" name="jobSex" range="{{sexArr}}" value="{{sexArr[sex]}}">
+                <view class="fs28 c28 fw3" wx:if="{{sex==''}}">
+          请选择性别要求
+        </view>
+                <view class="picker" wx:else>
+                    <form bindsubmit="submitformid" reportSubmit="true">
+                        <button class="fs28 c28" formType="submit">
+              {{sexArr[sex]}}
+            </button>
+                    </form>
+                </view>
+            </picker>
+            <image class="ml10" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">是否需要押金</text>
+        </view>
+        <view class="df aic jcfe w70">
+            <picker bindchange="bindIsyajinChange" name="isyajin" range="{{byajinArr}}" value="{{byajinArr[isyajin]}}">
+                <view class="fs28 c28 fw3" wx:if="{{isyajin==''}}">
+          是否需要报名押金
+        </view>
+                <view class="picker" wx:else>
+                    <form bindsubmit="submitformid" reportSubmit="true">
+                        <button class="fs28 c28" formType="submit">
+              {{byajinArr[isyajin]}}
+            </button>
+                    </form>
+                </view>
+            </picker>
+            <image class="ml10" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">报名押金</text>
+        </view>
+        <view class="df aic w70">
+            <input class="fs28 c28 tar" name="byajin" placeholder="请输入报名押金" placeholderClass="fw3" value="{{f_byajin}}"></input>
+            <image class="ml10 opacity" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view bindtap="c_Location" class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">工作地点</text>
+        </view>
+        <view class="df aic w70">
+            <input disabled class="fs28 c28 tar" name="jobPosition" placeholder="请选择工作地点" placeholderClass="fw3" value="{{pVal}}"></input>
+            <image class="ml10" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">押金费用</text>
+        </view>
+        <view class="df aic w70">
+            <input bindinput="yajininput" class="fs28 c28 tar" disabled="true" name="yajin" placeholder="解冻后抵用到在线结算工资中" placeholderClass="fw3" type="number" value="{{yajinval}}"></input>
+        </view>
+    </view>
+    <view class="fs26" style="color:#ff644a;margin-left:40rpx">押金费用=职位薪资*工作周期*所需人数*所选类型押金比例</view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2 mt20">
+        <view class="w30">
+            <text class="fs32 c6">工作属性</text>
+        </view>
+        <view class="df aic jcfe w70">
+            <picker bindchange="bindTypesChange" name="jobType" range="{{typesArr}}" value="{{typesArr[types]}}">
+                <view class="fs28 c28 fw3" wx:if="{{types==''}}">
+          请选择工作种类
+        </view>
+                <view class="picker" wx:else>
+                    <form bindsubmit="submitformid" reportSubmit="true">
+                        <button class="fs28 c28" formType="submit">
+              {{typesArr[types]}}
+            </button>
+                    </form>
+                </view>
+            </picker>
+            <image class="ml10" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">开始时间</text>
+        </view>
+        <view class="df aic jcfe w70" style="width:74%;">
+            <view class="df">
+                <picker bindchange="bindCycleChange_s" mode="date" name="date_s">
+                    <view class="fs28 c28 fw3" wx:if="{{date_s==''}}">
+            请选择开始日期
+          </view>
+                    <view class="picker" wx:else>
+                        <form bindsubmit="submitformid" reportSubmit="true">
+                            <button class="fs28 c28" formType="submit" style="line-height: 88rpx;">
+                {{date_s}}
+              </button>
+                        </form>
+                    </view>
+                </picker>
+                <text style="margin:0 20rpx;"></text>
+                <picker bindchange="bindTimeChange_s" mode="time" name="time_s">
+                    <view class="fs28 c28 fw3" wx:if="{{time_s==''}}">
+            请选择开始时间
+          </view>
+                    <view class="picker" wx:else>
+                        <form bindsubmit="submitformid" reportSubmit="true">
+                            <button class="fs28 c28" formType="submit" style="line-height: 88rpx;">
+                {{time_s}}
+              </button>
+                        </form>
+                    </view>
+                </picker>
+            </view>
+            <image class="ml10" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2">
+        <view class="w30">
+            <text class="fs32 c6">结束时间</text>
+        </view>
+        <view class="df aic jcfe w70" style="width:74%;">
+            <view class="df">
+                <picker bindchange="bindCycleChange_e" mode="date" name="date_e">
+                    <view class="fs28 c28 fw3" wx:if="{{date_e==''}}">
+            请选择结束日期
+          </view>
+                    <view class="picker" wx:else>
+                        <form bindsubmit="submitformid" reportSubmit="true">
+                            <button class="fs28 c28" formType="submit" style="line-height: 88rpx;">
+                {{date_e}}
+              </button>
+                        </form>
+                    </view>
+                </picker>
+                <text style="margin:0 20rpx;"></text>
+                <picker bindchange="bindTimeChange_e" mode="time" name="time_e">
+                    <view class="fs28 c28 fw3" wx:if="{{time_e==''}}">
+            请选择结束时间
+          </view>
+                    <view class="picker" wx:else>
+                        <form bindsubmit="submitformid" reportSubmit="true">
+                            <button class="fs28 c28" formType="submit" style="line-height: 88rpx;">
+                {{time_e}}
+              </button>
+                        </form>
+                    </view>
+                </picker>
+            </view>
+            <image class="ml10" mode="widthFix" src="../images/right.png" style="width:14rpx;"></image>
+        </view>
+    </view>
+    <view class="bsbb pl30 pr30 pb30 df fdc bgcf pt10" id="jobContent">
+        <view>
+            <text class="fs32 c6">工作描述</text>
+        </view>
+        <view>
+            <textarea bindinput="contentChange" class="bd2 w bsbb mt10 fs28 c28" name="textCon" placeholder="请输入工作描述" placeholderClass="fw3" value="{{content}}"></textarea>
+        </view>
+    </view>
+    <!-- <view class="bsbb pl30 pr30 pb30 df fdc bgcf pt10">
+        <view style="width:100%;overflow:hidden;">
+            <text class="fl fs30">我要置顶</text>
+            <switch bindchange="kaig" class="fr" name="zhiding"></switch>
+        </view>
+    </view> -->
+    <!-- <view class="pl30 pr30 df aic jcsb h88 bgcf bdb2" style="border-top:2rpx solid #eeeeee" wx:if="{{xianshi}}">
+        <view class="w30">
+            <text class="fs32 c6">置顶时间(/天)</text>
+        </view>
+        <view class="df aic w70">
+            <input class="fs28 c28 tar" name="zd_time" placeholder="请输入置顶时间" placeholderClass="fw3" type="number" value="{{zd_time}}"></input>
+        </view>
+    </view> -->
+    <!-- <view class="fs26" style="color:#ff644a;margin-left:40rpx">置顶费用为：￥{{base.zd_money}}/元/天</view>
+    <view class="bsbb pl30 pr30 pb50 pt20" wx:if="{{jinazhixq.f_typs!='审核通过'}}">
+        <input hidden="true" name="latitude" value="{{latitude}}"></input>
+        <input hidden="true" name="longitude" value="{{longitude}}"></input>
+        <input hidden="true" name="typs" value="{{typs}}"></input>
+        <input hidden="true" name="f_id" value="{{f_id}}"></input>
+        <input hidden="true" name="sjhy" value="{{shangjiainfo.hy}}"></input>
+        <input hidden="true" name="zd_money" value="{{base.zd_money}}"></input>
+        <button class="bdr50 bgc cf fs30" formType="submit">支付担保费用并提交审核</button>
+    </view> -->
+</form>
+<my-footer footdex="2"></my-footer>

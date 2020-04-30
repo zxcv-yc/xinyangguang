@@ -1,0 +1,63 @@
+<view class="my_bg bgc df fdc jcsb">
+    <view class="mt20 df fdc aic jcc">
+        <view class="header_bg df aic jcc bdr pr">
+            <image class="bdr" mode="aspectFill" src="{{list.u_thumb}}" style="width:110rpx;height:110rpx;"></image>
+            <image class="bdr sex" mode="widthFix" src="../images/sex_0.png" style="width:20rpx;" wx:if="{{list.sex=='男'}}"></image>
+            <image class="bdr sex" mode="widthFix" src="../images/sex_1.png" style="width:20rpx;" wx:if="{{list.sex=='女'}}"></image>
+        </view>
+        <view class="fs26 mt15 mb10 cf fw3">{{list.u_name}}</view>
+    </view>
+    <view>
+        <image mode="widthFix" src="../images/my_bg.png"></image>
+    </view>
+</view>
+<view class="mt20 bgcf">
+    <view class="bsbb pl30 pr30 h88">
+        <text class="fs30 c6">年龄: </text>
+        <text class="fs28 c6 fw3">{{list.age}}岁</text>
+    </view>
+    <view class="bsbb pl30 pr30 h88">
+        <text class="fs30 c6">身高: </text>
+        <text class="fs28 c6 fw3">{{list.u_shengao}}cm</text>
+    </view>
+    <view class="bsbb pl30 pr30 h88">
+        <text class="fs30 c6">所在城市: </text>
+        <text class="fs28 c6 fw3">{{list.u_address}}</text>
+    </view>
+    <view class="bsbb pl30 pr30 h88">
+        <text class="fs30 c6">教育情况: </text>
+        <text class="fs28 c6 fw3">{{list.u_jiaoyu}}</text>
+    </view>
+    <view bindtap="callPhone" class="bsbb pl30 pr30 h88" data-phone="{{list.u_tel}}">
+        <text class="fs30 c6">联系电话: </text>
+        <text class="fs28 c6 fw3">{{list.u_tel}}</text>
+    </view>
+    <view class="bsbb pl30 pr30 h88">
+        <text class="fs30 c6">联系邮箱: </text>
+        <text class="fs28 c6 fw3">{{list.u_email}}</text>
+    </view>
+    <view class="bsbb pl30 pr30 h88">
+        <text class="fs30 c6">微信: </text>
+        <text class="fs28 c6 fw3">{{list.u_qq}}</text>
+    </view>
+    <view class="bsbb pl30 pr30 h88">
+        <text class="fs30 c6">就读学校: </text>
+        <text class="fs28 c6 fw3">{{list.u_shcool}}</text>
+    </view>
+    <view class="bsbb pl30 pr30 h88">
+        <text class="fs30 c6">就读专业: </text>
+        <text class="fs28 c6 fw3">{{list.u_zhuanye}}</text>
+    </view>
+    <view class="bsbb pl30 pr30 h88">
+        <text class="fs30 c6">健康证明: </text>
+        <text class="fs28 c6 fw3">{{list.u_jiankang}}</text>
+    </view>
+    <view class="bsbb pl30 pr30 h88">
+        <text class="fs30 c6">在校经历: </text>
+        <text class="fs28 c6 fw3">{{list.u_content}}</text>
+    </view>
+</view>
+<view class="bsbb pl30 pr30 h88 df mt50 jcsb">
+    <button bindtap="Luyong" class="bdn bgc cf df aic jcc h w50 bdr50" data-b_id="{{b_id}}" data-f_id="{{f_id}}">录用</button>
+    <button bindtap="Buluyong" class="bdn bgceb c9 df aic jcc h w50 bdr50 ml15" data-b_id="{{b_id}}">不录用</button>
+</view>

@@ -1,0 +1,24 @@
+<view class="vipbox">
+    <view class="vipsel">会员选择</view>
+    <view class="viplist" wx:for="{{list}}" wx:for-index="indexs" wx:for-item="vips" wx:key="p">
+        <view bindtap="selvip" class="viptop" data-dex="{{indexs}}" data-id="{{vips.id}}">
+            <view>{{vips.title}}</view>
+            <view>￥{{vips.money}}</view>
+            <view>
+                <icon class="emptyicon" wx:if="{{vips.renzheng==false}}"></icon>
+                <icon class="successicon" type="success" wx:else></icon>
+            </view>
+        </view>
+        <view class="vipbot" wx:if="{{vips.renzheng==true}}">
+            <view class="viptit">{{vipnames}}说明：</view>
+            <view class="vipjs" wx:if="{{vips.content!=null}}">
+                <view>{{vips.content}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<form bindsubmit="submitVIP" reportSubmit="true">
+    <button class="btns" formType="submit">
+        <view>确定选择并支付</view>
+    </button>
+</form>

@@ -1,0 +1,34 @@
+<block wx:if="{{list.length!=0}}">
+    <form bindsubmit="link" data-j_id="{{item.f_id}}" reportSubmit="true" wx:for="{{list}}" wx:key="ct">
+        <button formType="submit">
+            <view class="bsbb pl30 pr30 pt20 pb20 bdb2 df bgcf">
+                <view class="w20 df aic shadebox">
+                    <image class="bdr" mode="aspectFill" src="{{item.thumb}}" style="width:98rpx;height:98rpx;"></image>
+                    <view class="shade fs32" hidden="{{item.baoming=='false'}}">已满</view>
+                </view>
+                <view class="w80">
+                    <view class="df aic">
+                        <text class="fs32 c6">{{item.f_name}}</text>
+                    </view>
+                    <view class="df aife fs26 c9 lh1 mt15">
+                        <view class="df aife" style="margin-right:20rpx;">
+                            <image mode="widthFix" src="/hyb_jianzhi/images/position.png" style="width:30rpx;"></image>
+                            <view class="ml10 fw3">{{item.f_addressss}}</view>
+                        </view>
+                        <view class="df jcsb mt10">
+                            <view>
+                                <text class="c">{{item.f_xinzi}}</text>
+                                <text class="c6 fw3 ml5">{{item.f_danwei}} | {{item.f_jiesuan}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </button>
+    </form>
+    <my-bottom class="mt20"></my-bottom>
+</block>
+<block wx:if="{{list.length==0}}">
+    <my-none none="{{none}}"></my-none>
+    <my-bottom class="mt20"></my-bottom>
+</block>

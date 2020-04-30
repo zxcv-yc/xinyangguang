@@ -1,0 +1,18 @@
+.line {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+    background-color: #fff;
+    font-size: 24rpx;
+}
+
+.c9 {
+    color: #6c6c6c;
+}
+
+.c {
+    color: #ff644a;
+}

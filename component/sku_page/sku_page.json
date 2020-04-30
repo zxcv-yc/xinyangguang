@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "my-sku-list": "/component/sku_list/sku_list"
+    }
+}

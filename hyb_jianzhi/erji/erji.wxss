@@ -1,0 +1,13 @@
+@import "../sell/sell.wxss";
+
+.p_item {
+    background: #fff;
+}
+
+.img {
+    margin-right: 20rpx;
+}
+
+.img image {
+    border-radius: 50%;
+}

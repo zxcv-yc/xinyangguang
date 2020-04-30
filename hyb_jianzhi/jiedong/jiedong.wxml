@@ -1,0 +1,17 @@
+<view class="mt20">
+    <form bindsubmit="subClick">
+        <view class="pl30 pr30 fff">
+            <view class="pt100 jiedong">
+                <image mode="aspectFill" src="../images/jiedong.png"></image>
+            </view>
+            <view class="fs30 pt50">已冻结保证金</view>
+            <view class="chongzhi pb100 pt50">
+                <text class="fs28 fw5">￥</text>
+                <input class="fs60 fw9" disabled="true" name="chongzhi" value="{{bzj}}"></input>
+            </view>
+        </view>
+        <view class="bsbb pl30 pr30 pb50 pt20 mt50 btn">
+            <button class="bdr20 bgc cf fs30" formType="submit">申请解冻</button>
+        </view>
+    </form>
+</view>

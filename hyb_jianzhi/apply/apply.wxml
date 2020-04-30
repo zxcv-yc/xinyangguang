@@ -1,0 +1,103 @@
+<view class="bsbb pl30 pr30 df jcsb h88 bgcf">
+  <form bindsubmit="navTab" data-index="{{index}}" reportSubmit="true" wx:for="{{navArr}}" wx:key="unique">
+    <button class="fs30 fw3 {{current==index?'c bdb4':'c6'}}" formType="submit" style="background:#fff;line-height: 88rpx;">
+      {{item.con}}
+    </button>
+  </form>
+</view>
+<block wx:if="{{list.length!=0}}">
+  <view class="mt20 bgcf bsbb p30 df aic jcsb bdb2"  data-id="{{item.b_id}}" data-index="{{index}}" wx:if="{{item.f_name!=null}}" wx:for="{{list}}" wx:key="unique" wx:for-index="index">
+    <form bindsubmit="timeJobDetailClick" data-j_id="{{item.b_mid}}" reportSubmit="true">
+      <button class="buttonYijiesuan" formType="submit">
+        <view class="df">
+          <view class="df fdc">
+            <view class="fs30 c6" style="text-align: left;">{{item.f_name}} 
+              <image class="bdr" mode="aspectFill" src="{{item.thumb}}" style="width:40rpx;height:40rpx;margin-left:10rpx;"></image>
+            </view>
+            <view style="overflow:hidden;height:45rpx;">
+              <image mode="widthFix" src="../images/position.png" style="width:26rpx;"></image>
+              <text class="c28 fs24 fw3 ml10" style="overflow:hidden;" wx:if="{{item.dz==null}}">{{item.f_address}}</text>
+              <text class="c28 fs24 fw3 ml10" wx:else>{{item.dz}}</text>
+            </view>
+            <view class="df mt10">
+              <text class="c28 fs24 fw3">工作日期:{{item.worktime}}</text>
+            </view>
+            <view class="df mt10">
+              <text class="c28 fs24 fw3">{{item.f_xinzi}}{{item.f_danwei}} | {{item.f_jiesuan}}</text>
+            </view>
+          </view>
+        </view>
+      </button>
+    </form>
+    <!-- <view class="fs30 c fw3" wx:if="{{current==0}}">{{item.b_typs}}</view> -->
+    <view class="fs30 c fw3" wx:if="{{current==0}}" bindtap='{{item.xianchangPhoto?"":"sign"}}'  data-id="{{item.b_id}}" data-index="{{index}}" >
+    已录用
+      <text decode="true">
+        {{item.xianchangPhoto?'已签到':'点击签到'}}
+      </text>
+    </view>
+    <!-- 已到岗 未签退 -->
+    <view class="fs30 c fw3" wx:if="{{current==1 && item.qt_address == null }}" bindtap='qt_sign'  data-id="{{item.b_id}}" data-index="{{index}}" >
+      已到岗 
+      <text decode="true">
+      点击签退
+      </text>
+    </view>
+  <!-- 已到岗  已签退 -->
+    <view class="fs30 c fw3" wx:if="{{current==1 && item.qt_address != null }}">
+      已到岗 
+    </view>
+
+    <view class="fs30 c fw3" wx:if="{{current==2}}"  >
+      待结算
+      <button class="fs30 cf fw3 bgc bdr50 bsbb pl15 pr15 pt5 pb5 mt10 fs30" style="line-height: 40rpx;" bindtap='gz_lq' data-b_id="{{item.b_id}}" data-nid="4"  wx:if="{{item.admin_qt == 1&& item.gongzi_lingqu != 1}}" >
+        领取工资
+      </button>
+      <view wx:if="{{item.gl_qt == 1 && item.admin_qt != 1 }}"  style="color:grey;font-size:20rpx;" >
+        项目管理员已确认签退
+      </view>
+    </view>
+    <view class="fs30 c fw3 tac" wx:if="{{current==3}}">
+      <view>已结算</view>
+      
+      <!-- &&item.pinglun=='false' -->
+      <form bindsubmit="goPingClick" data-b_id="{{item.b_id}}" reportSubmit="true" wx:if="{{current==3}}">
+        <button class="fs30 cf fw3 bgc bdr50 bsbb pl15 pr15 pt5 pb5 mt10 fs30" formType="submit" style="line-height: 40rpx;">
+          去评价
+        </button>
+      </form>
+    </view>
+    <view class="fs30 c fw3 tac" wx:if="{{current==4}}">
+      <view>已误工</view>
+      <button class="fs30 cf fw3 bgc bdr50 bsbb pl15 pr15 pt5 pb5 mt10 fs30" style="line-height: 40rpx;" bindtap='lingquyajin' data-b_id="{{item.b_id}}" data-nid="5" wx:if="{{item.yajin >0 && item.yajin_tuihuan==0}}" >
+        领取押金
+      </button>
+    </view>
+    <form bindsubmit="delClick" data-b_id="{{item.b_id}}"  reportSubmit="true" wx:if="{{current==0}}">
+      <button formType="submit">
+        <view class="df aic jcfe fs22 c9 fw3 bdbb pl30 pr30 h60 bgcf">
+          <image mode="widthFix" src="../images/error.png" style="width:20rpx;"></image>
+          <text class="ml15">取消报名</text>
+        </view>
+      </button>
+    </form>
+    
+  </view>
+  <my-bottom wx:if="{{current==0||current==1}}"></my-bottom>
+</block>
+<block wx:if="{{list.length==0}}">
+  <my-none none="{{none}}" wx:if="{{current==0}}"></my-none>
+  <my-none none="{{none1}}" wx:if="{{current==1}}"></my-none>
+  <my-none none="{{none2}}" wx:if="{{current==2}}"></my-none>
+  <my-none none="{{none3}}" wx:if="{{current==3}}"></my-none>
+  <my-none none="{{none4}}" wx:if="{{current==4}}"></my-none>
+  <my-none none="{{none4}}" wx:if="{{current==5}}"></my-none>
+  <my-bottom wx:if="{{current==0||current==1}}"></my-bottom>
+</block>
+<form bindsubmit="homeClick" reportSubmit="true">
+  <button formType="submit">
+    <view bindtap="homeClick" class="home">
+      <image mode="widthFix" src="../images/home.png" style="width:120rpx;"></image>
+    </view>
+  </button>
+</form>

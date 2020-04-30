@@ -1,0 +1,39 @@
+.my_bg {
+    height: 310rpx;
+}
+
+.my_bg .pa {
+    bottom: 0;
+    left: 0;
+}
+
+.header_bg {
+    width: 130rpx;
+    height: 130rpx;
+    background-color: rgba(255,255,255,.5);
+}
+
+.bdcf {
+    height: 44rpx;
+    line-height: 44rpx;
+    padding: 0 10rpx;
+}
+
+.bdcf::after {
+    border: 2rpx solid #fff;
+}
+
+.my_bg .sex {
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+}
+
+.h88 {
+    height: 88rpx;
+    line-height: 88rpx;
+}
+
+.bgceb {
+    background-color: #d1d1d1;
+}

@@ -1,0 +1,94 @@
+.h88 {
+    height: 88rpx;
+    line-height: 88rpx;
+}
+
+.opacity {
+    opacity: 0;
+}
+
+.bd2 {
+    border: 2rpx solid #ccc;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.3);
+}
+
+.fuli {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 300rpx;
+    background-color: #fff;
+}
+
+.bdc9::after {
+    border: 2rpx solid #6c6c6c;
+    border-radius: 50rpx;
+}
+
+.bdc::after {
+    border: 2rpx solid #ff644a;
+    border-radius: 50rpx;
+}
+
+.btn-fuli {
+    width: 180rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    padding: 0;
+}
+
+.imgs {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+}
+
+button {
+    width: 100%;
+    height: 100%;
+    border-radius: 0rpx;
+    padding: 0;
+}
+
+button::after {
+    border: none;
+}
+
+.zhezhao {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0rpx;
+    left: 0rpx;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+}
+
+.zhe_main {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    width: 60%;
+    font-size: 28rpx;
+    color: #999;
+    background-color: #fff;
+    padding: 20rpx;
+}
+
+.zhe_main button {
+    background-color: #eee;
+    border-radius: 30rpx;
+    font-size: 30rpx;
+    margin-top: 30rpx;
+}

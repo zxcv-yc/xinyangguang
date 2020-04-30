@@ -1,0 +1,15 @@
+.h300 {
+    height: 300rpx;
+}
+
+.bd {
+    border: 2rpx solid #888;
+}
+
+.w360 {
+    width: 360rpx;
+}
+
+.h88 {
+    height: 88rpx;
+}

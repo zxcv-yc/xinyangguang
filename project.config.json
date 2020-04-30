@@ -1,0 +1,233 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.1",
+	"appid": "wx865cb8b7233b8de1",
+	"projectname": "%E6%80%9D%E5%88%9B%E5%85%BC%E8%81%8C",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 24,
+			"list": [
+				{
+					"id": -1,
+					"name": "签到开发",
+					"pathName": "hyb_jianzhi/apply/apply",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "签到开发2",
+					"pathName": "hyb_jianzhi/apply_sign/apply_sign",
+					"query": "id=5",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的页面",
+					"pathName": "hyb_jianzhi/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "管理员页面",
+					"pathName": "hyb_jianzhi/manager/shop",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "管理员-已发布兼职",
+					"pathName": "hyb_jianzhi/manager_apply/shop_apply",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "管理员-已发布兼职",
+					"pathName": "hyb_jianzhi/manage_apply_detail/shop_apply_detail",
+					"query": "f_id=7&state=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑简历",
+					"pathName": "hyb_jianzhi/edit/edit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的评鉴",
+					"pathName": "hyb_jianzhi/my_ping/my_ping",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提现操作",
+					"pathName": "hyb_jianzhi/my_ti/my_ti",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的工作",
+					"pathName": "hyb_jianzhi/apply/apply",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "我的申请",
+					"pathName": "hyb_jianzhi/apply/apply",
+					"query": "index=0",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "兼职详情",
+					"pathName": "hyb_jianzhi/job_detail/job_detail",
+					"query": "j_id=10&typs=tiao",
+					"scene": 1011
+				},
+				{
+					"id": 12,
+					"name": "发送报名信息",
+					"pathName": "hyb_jianzhi/send/send",
+					"query": "f_id=10",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "报名成功",
+					"pathName": "hyb_jianzhi/success/success",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "管理员已到岗",
+					"pathName": "hyb_jianzhi/manage_apply_detail/shop_apply_detail",
+					"query": "f_id=10&state=4",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "领取工资",
+					"pathName": "hyb_jianzhi/gongzi/gongzi",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "hyb_jianzhi/time_job_list/time_job_list",
+					"query": "title=快递",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户协议",
+					"pathName": "hyb_jianzhi/xieyi/xieyi",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "审批",
+					"pathName": "hyb_jianzhi/manage_apply_detail/shop_apply_detail",
+					"query": "f_id=35&state=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发送报名信息",
+					"pathName": "hyb_jianzhi/send/send",
+					"query": "f_id=39",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "全部",
+					"pathName": "hyb_jianzhi/time_job_more/time_job_more",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "hyb_jianzhi/index/index",
+					"pathName": "hyb_jianzhi/index/index",
+					"query": "j_id=37&fx_uid=oJ_QN5FKGTE1YwwboqYPq5q2PnBY",
+					"scene": 1007
+				},
+				{
+					"id": -1,
+					"name": "hyb_jianzhi/index/index",
+					"pathName": "hyb_jianzhi/index/index",
+					"query": "fx_uid=17",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "詳情",
+					"pathName": "hyb_jianzhi/job_detail/job_detail",
+					"query": "fx_uid=17",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "hyb_jianzhi/job_detail/job_detail",
+					"pathName": "hyb_jianzhi/job_detail/job_detail",
+					"query": "j_id=37&fx_uid=oJ_QN5FKGTE1YwwboqYPq5q2PnBY",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "简历",
+					"pathName": "hyb_jianzhi/edit/edit",
+					"scene": null
+				}
+			]
+		}
+	}
+}

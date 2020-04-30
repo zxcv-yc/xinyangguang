@@ -1,0 +1,69 @@
+page {
+    position: relative;
+    background-color: #f2f2f2;
+}
+
+.tiwen-bg {
+    width: 100%;
+    height: 50rpx;
+}
+
+.mt122 {
+    margin-top: 90rpx;
+}
+
+.p28 {
+    padding: 28rpx;
+}
+
+.nav {
+    position: absolute;
+    top: 19rpx;
+    width: 100%;
+    z-index: 2;
+}
+
+.nav-scr {
+    box-shadow: 1rpx 1rpx 30rpx 0.5rpx #e2e2e2;
+}
+
+.ti-btn::after {
+    border: 1rpx solid #02b3b9;
+}
+
+radio {
+    transform: scale(.7,.7);
+}
+
+.df {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.zf_item {
+    border: 2rpx solid #242424;
+    padding: 10rpx 20rpx;
+    color: #242424;
+    margin-right: 20rpx;
+    display: inline-block;
+}
+
+.zf_item.sel {
+    border-color: #ff644a;
+    color: #ff644a;
+}
+
+button:after {
+    border: none;
+    width: 0;
+    height: 0;
+}
+
+.bf {
+    background: #fff;
+}
+
+.huise {
+    background-color: #888;
+}

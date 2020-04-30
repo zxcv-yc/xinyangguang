@@ -1,0 +1,104 @@
+<view class="zhezhao" wx:if="{{close}}">
+    <view class="zhe_main">
+        <view>
+      你的账号被限制了访问，请及时联系管理员处理，您的商户id为
+      <text style="color:red;font-size:28rpx;">{{s_id}}</text>
+        </view>
+        <view>
+            <text style="color:red;font-size:28rpx;">封号原因：</text> {{shopinfo.sf_content}}
+    </view>
+        <view>
+            <button class="lxfy" hoverClass="" openType="contact" sessionFrom="{\"nickName\":\"{{shopinfo.s_name}}\",\"avatarUrl\":\"{{shopinfo.s_thumb}}\"}">
+        在线客服
+      </button>
+        </view>
+    </view>
+</view>
+<view class="my_bg bgc df fdc jcsb">
+    <view class="mt20 df fdc aic jcc">
+        <view class="header_bg bdr">
+            <image class="bdr" src="{{shangjiainfo.s_thumb}}" style="width:110rpx;height:110rpx;"></image>
+            <image class="vipimg" src="{{shangjiainfo.hy_thumb}}" wx:if="{{shangjiainfo.hy=='true'}}"></image>
+        </view>
+        <view class="fs26 mt15 mb10 cf fw3" style="margin-top:30rpx;">{{shangjiainfo.s_name}}</view>
+        <view class="fs26 mb10 cf fw3" style="margin-top:10rpx;" wx:if="{{shangjiainfo.jiezhi>0}}">商家入驻还有{{shangjiainfo.jiezhi}}天到期 </view>
+        <view class="fs26 mb10 cf fw3" style="margin-top:10rpx;display:flex;" wx:if="{{shangjiainfo.jiezhi<=0}}">
+            <text style="line-height: 26rpx;">商家入驻已到期</text>
+            <form bindsubmit="payClick" reportSubmit="true">
+                <button class="renew" formType="submit">
+                    <text>续费</text>
+                </button>
+            </form>
+        </view>
+        <view style="margin-top:10rpx;">
+            <form bindsubmit="editClick" reportSubmit="true">
+                <button class="bdn bdcf cf fs24 fw3" formType="submit">商家资料</button>
+            </form>
+        </view>
+    </view>
+    <view>
+        <image mode="widthFix" src="../images/my_bg.png"></image>
+    </view>
+</view>
+<view class="bgcf bsbb pl30 pr30 df jcsa paddingNav">
+    <form bindsubmit="applyClick" data-index="0" reportSubmit="true" style="flex:1;">
+        <button class="df fdc aic jcc" formType="submit" style="background:#fff;">
+            <image mode="widthFix" src="../images/icon_17.png" style="width:75rpx;height:75rpx;"></image>
+            <text class="fs24 fs3 c6 mt10">待审核</text>
+        </button>
+    </form>
+    <form bindsubmit="applyClick" data-index="1" reportSubmit="true" style="flex:1;">
+        <button class="df fdc aic jcc" formType="submit" style="background:#fff;">
+            <image mode="widthFix" src="../images/icon_12.png" style="width:75rpx;height:75rpx;"></image>
+            <text class="fs24 fs3 c6 mt10">已发布</text>
+        </button>
+    </form>
+    <form bindsubmit="applyClick" data-index="2" reportSubmit="true" style="flex:1;">
+        <button class="df fdc aic jcc" formType="submit" style="background:#fff;">
+            <image mode="widthFix" src="../images/icon_06.png" style="width:75rpx;height:75rpx;"></image>
+            <text class="fs24 fs3 c6 mt10">待录用</text>
+        </button>
+    </form>
+    <form bindsubmit="applyClick" data-index="3" reportSubmit="true" style="flex:1;">
+        <button class="df fdc aic jcc" formType="submit" style="background:#fff;">
+            <image mode="widthFix" src="../images/icon_13.png" style="width:75rpx;height:75rpx;"></image>
+            <text class="fs24 fs3 c6 mt10">待到岗</text>
+        </button>
+    </form>
+    <form bindsubmit="applyClick" data-index="4" reportSubmit="true" style="flex:1;">
+        <button class="df fdc aic jcc" formType="submit" style="background:#fff;">
+            <image mode="widthFix" src="../images/icon_07.png" style="width:75rpx;height:75rpx;"></image>
+            <text class="fs24 fs3 c6 mt10">已到岗</text>
+        </button>
+    </form>
+    <form bindsubmit="applyClick" data-index="5" reportSubmit="true" style="flex:1;">
+        <button class="df fdc aic jcc" formType="submit" style="background:#fff;">
+            <image mode="widthFix" src="../images/icon_08.png" style="width:75rpx;height:75rpx;"></image>
+            <text class="fs24 fs3 c6 mt10">已结算</text>
+        </button>
+    </form>
+</view>
+<view class="mt20 df fdc bgcf">
+    <form bindsubmit="{{item.btn}}" openType="{{item.open}}" reportSubmit="true" wx:for="{{myListArr}}" wx:key="unique">
+        <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" formType="submit">
+            <view>
+                <image mode="widthFix" src="{{item.img}}" style="width:30rpx;"></image>
+                <text class="fs28 fw3 c6 ml20">{{item.con}}</text>
+            </view>
+            <view>
+                <text class="yueshow" wx:if="{{index=='0'}}">￥{{shangjiainfo.s_money}}</text>
+                <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+            </view>
+        </button>
+    </form>
+    <button class="df aic jcsb bsbb pl30 pr30 bdb2 h88 bdn" openType="contact" sessionFrom="{\"nickName\":\"{{userinfo.u_name}}\",\"avatarUrl\":\"{{userinfo.u_thumb}}\"}">
+        <view>
+            <image mode="widthFix" src="../images/icon_15.png" style="width:30rpx;"></image>
+            <text class="fs28 fw3 c6 ml20">在线客服</text>
+        </view>
+        <view>
+            <image mode="widthFix" src="../images/right.png" style="width:16rpx;"></image>
+        </view>
+    </button>
+</view>
+<my-footer footdex="3"></my-footer>

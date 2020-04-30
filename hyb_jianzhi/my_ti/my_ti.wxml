@@ -1,0 +1,58 @@
+<view class="tiwen-bg bgc"></view>
+<view class="bsbb pl30 pr30 nav">
+    <view class="nav-scr bgcf bdr20 bsbb p15">
+        <view class="df jcsb p10">
+            <view class="df fdc jcc">
+                <text class="fs26 c9">账户余额</text>
+            </view>
+            <view bindtap="mingClick" class="df aife">
+                <text class="fs40 c6" wx:if="{{yonghu=='用户'}}">{{userinfo.u_money}}</text>
+                <text class="fs40 c6" wx:if="{{yonghu=='商家'}}">{{shangjiainfo.s_money}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<form bindsubmit="subClick" reportSubmit="true">
+    <view class="mt122 bsbb pl30 pr30 df fs30 bf p15" style="margin:0 30rpx;margin-top:90rpx;">
+        <view>提现方式：</view>
+        <view>
+            <radio-group bindchange="radioChange" class="df">
+                <label wx:for="{{zffs}}">
+                    <radio checked="" hidden="true" value="{{item}}"></radio>
+                    <view class="zf_item {{sel==item?'sel':''}}">{{item}}</view>
+                </label>
+            </radio-group>
+        </view>
+    </view>
+    <!-- <view class="mt20 bsbb pl30 pr30" wx:if="{{sel=='支付宝'}}">
+        <view class="bgcf tac fs30 c6 bsbb p28 bdr20">
+            <input name="zfb_name" placeholder="输入支付宝姓名" placeholderClass="fs30 c9" type="text"></input>
+        </view>
+    </view>
+    <view class="mt20 bsbb pl30 pr30" wx:if="{{sel=='支付宝'}}">
+        <view class="bgcf tac fs30 c6 bsbb p28 bdr20">
+            <input name="zfb_zhanghao" placeholder="输入支付宝账号" placeholderClass="fs30 c9" type="text"></input>
+        </view>
+    </view> -->
+    <view class="mt20 bsbb pl30 pr30">
+        <view class="bgcf tac fs30 c6 bsbb p28 bdr20">
+            <input name="money" placeholder="输入提现金额" placeholderClass="fs30 c9" type="number"></input>
+        </view>
+    </view>
+    <view class="mt50 bsbb pl30 pr30">
+        <label class="radio fs26 c9 df aic" wx:if="{{yonghu=='用户'}}">
+            <text>提现手续费为{{userinfo.tixianshezhi}}%</text>
+        </label>
+        <label class="radio fs26 c9 df aic" wx:if="{{yonghu=='商家'}}">
+            <text>提现手续费为{{shangjiainfo.tixianshezhi}}%</text>
+        </label>
+        <input hidden="true" name="u_money" value="{{userinfo.u_money}}"></input>
+        <input hidden="true" name="s_money" value="{{shangjiainfo.s_money}}"></input>
+        <input hidden="true" name="typs" value="{{sel}}"></input>
+        <input hidden="true" name="yonghu" value="{{yonghu}}"></input>
+        <view class="mt20">
+            <button class="bgc cf fs32 bdr50 ti-btn" formType="submit" wx:if="{{disabled}}">确认提现</button>
+            <button class="bgc cf fs32 bdr50 ti-btn huise" wx:else>确认提现</button>
+        </view>
+    </view>
+</form>

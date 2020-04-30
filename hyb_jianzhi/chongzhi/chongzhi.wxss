@@ -1,0 +1,26 @@
+.fff {
+    background: #fff;
+}
+
+button {
+    line-height: 90rpx;
+}
+
+.fs60 {
+    font-size: 60rpx;
+}
+
+.chongzhi {
+    width: 100%;
+    overflow: hidden;
+}
+
+.chongzhi text {
+    float: left;
+}
+
+.chongzhi input {
+    float: left;
+    margin-top: 20rpx;
+    width: 90%;
+}

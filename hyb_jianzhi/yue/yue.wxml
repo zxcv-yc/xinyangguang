@@ -1,0 +1,12 @@
+<import src="/hyb_jianzhi/wxParse/wxParse.wxml"></import>
+<view class="bsbb p18">
+    <view class="bgcf bdr20 bsbb pl30 pr30 pt28 pb28">
+        <view class="df aic jcc fs32 c6 mb20">使用帮助</view>
+        <view class="df fdc fs28 c6 text-indent">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+        </view>
+        <view class="sub-btn mt50 pb20">
+            <button bindtap="fanhui" class="bgc cf fs32 bdr50">我已阅读</button>
+        </view>
+    </view>
+</view>

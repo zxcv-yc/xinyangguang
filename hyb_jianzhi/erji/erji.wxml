@@ -1,0 +1,15 @@
+<view>
+    <view class="p_item df border_bot_2 aic jcsb" wx:for="{{Userfenxiao}}" wx:key="fd">
+        <view class="df">
+            <view class="img">
+                <image mode="aspectFill" src="{{item.fx_thumb}}" style="width:80rpx;height:80rpx;"></image>
+            </view>
+            <view class="h80">
+                <view class="name color333 mb0 h df aifs fdc jcc">
+                    <view class="fs28">{{item.fx_name}}</view>
+                    <view class="c9 fs20 mt10">{{item.fx_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

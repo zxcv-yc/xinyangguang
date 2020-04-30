@@ -1,0 +1,102 @@
+<view class="amateurbox">
+    <view class="amateurNum pt50 pb50">
+        <view class="pr">
+            <view class="df header-img ml30 aifs pa">
+                <image mode="widthFix" src="../images/icon_18.png" style="width:30rpx;"></image>
+                <text class="ml10 fs22">佣金:{{Userfenxiao.fenxiaoyongjincount}}(元)</text>
+            </view>
+            <image class="mtn20" mode="widthFix" src="../images/amateur.png"></image>
+        </view>
+        <view>
+            <text class="fs60 mt20">{{Userfenxiao.fenxiaonum}}</text>
+        </view>
+    </view>
+</view>
+<form bindsubmit="erweima" reportSubmit="true">
+    <button formType="submit">
+        <view class="tuiguang df jsb">
+            <view class="color333 fs30">
+                <image class="icon" src="/hyb_jianzhi/images/generalize.png"></image>我的二维码
+  </view>
+            <view class="right_arr df">
+                <image src="/hyb_jianzhi/images/right.png"></image>
+            </view>
+        </view>
+    </button>
+</form>
+<form bindsubmit="haibao" reportSubmit="true">
+    <button formType="submit">
+        <view class="tuiguang df jsb">
+            <view class="color333 fs30">
+                <image class="icon" src="/hyb_jianzhi/images/generalize.png"></image>分享海报
+  </view>
+            <view class="right_arr df">
+                <image src="/hyb_jianzhi/images/right.png"></image>
+            </view>
+        </view>
+    </button>
+</form>
+<view class="bgcf df jcsb h88 bsbb pt20 pb20 mt20">
+    <form bindsubmit="TabClick" class="w50 fs28 tac {{current==0?'c':'c6'}}" data-index="0" reportSubmit="true">
+        <button class="w50 fs28 tac {{current==0?'c':'c6'}}" formType="submit" style="background:#fff;">
+      我的人脉
+    </button>
+    </form>
+    <form bindsubmit="TabClick" class="w50 bdl2 fs28 tac {{current==1?'c':'c6'}}" data-index="1" reportSubmit="true">
+        <button class="w50 fs28 tac {{current==1?'c':'c6'}}" formType="submit" style="background:#fff;">
+      收益明细
+    </button>
+    </form>
+</view>
+<view class="part mt20" hidden="{{current!=0}}">
+    <view>
+        <view class="p_item df border_bot_2 aic jcsb" wx:if="{{Userfenxiao.fenxiao.length!=0}}" wx:for="{{Userfenxiao.fenxiao}}" wx:key="fd">
+            <view class="df">
+                <view class="img">
+                    <image mode="aspectFill" src="{{item.fx_thumb}}" style="width:80rpx;height:80rpx;"></image>
+                </view>
+                <view class="h80">
+                    <view class="name color333 mb0 h df aifs fdc jcc">
+                        <view class="fs28">{{item.fx_name}}</view>
+                        <view class="c9 fs20 mt10">{{item.fx_time}}</view>
+                    </view>
+                </view>
+            </view>
+            <form bindsubmit="openerji" data-id="{{item.fx_openid}}" reportSubmit="true" wx:if="{{item.fenxiaoerji.length>0}}">
+                <button formType="submit">
+                    <view class="fs28 colorpink">推荐{{item.fenxiaoerji.length}}人 > </view>
+                </button>
+            </form>
+        </view>
+        <my-none none="{{none}}" wx:if="{{Userfenxiao.fenxiao.length==0}}"></my-none>
+    </view>
+</view>
+<view class="part mt20" hidden="{{current!=1}}">
+    <block wx:if="{{Userfenxiao.fenxiaoyongjin.length!=0}}">
+        <view class="p_item df border_bot_2 aic jcsb" wx:for="{{Userfenxiao.fenxiaoyongjin}}" wx:key="fd">
+            <view class="df">
+                <view class="img">
+                    <image mode="aspectFill" src="{{item.thumb}}" style="width:80rpx;height:80rpx;"></image>
+                </view>
+                <view class="h80">
+                    <view class="name color333 mb0 h df aifs fdc jcc">
+                        <view class="fs28">{{item.name}}</view>
+                        <view class="fs20 c9 mt10">{{item.time}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="bsbb pr30">
+                <text class="fs28 c">+ ￥{{item.money}}</text>
+            </view>
+        </view>
+    </block>
+    <my-none none="{{none1}}" wx:if="{{Userfenxiao.fenxiaoyongjin.length==0}}"></my-none>
+</view>
+<view class="pb20"></view>
+<form bindsubmit="closeModal" reportSubmit="true" wx:if="{{t_status||t_status2}}">
+    <button formType="submit">
+        <view class="modal"></view>
+    </button>
+</form>
+<canvas bindlongpress="sc1" canvasId="mycanvas" class="canvas" style="width:{{windowWidth*0.5}}px;height:{{windowWidth*0.5}}px" wx:if="{{t_status}}"></canvas>
+<canvas bindlongpress="sc2" canvasId="canvass" class="canvas" style="width:{{windowWidth*0.7}}px;height:{{windowHeight*0.7}}px" wx:if="{{t_status2}}"></canvas>

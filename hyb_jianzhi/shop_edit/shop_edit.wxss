@@ -1,0 +1,8 @@
+.h88 {
+    height: 88rpx;
+    line-height: 88rpx;
+}
+
+.opacity {
+    opacity: 0;
+}

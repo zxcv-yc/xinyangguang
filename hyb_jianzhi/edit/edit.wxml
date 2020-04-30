@@ -1,0 +1,211 @@
+<view style="width:750rpx;overflow:hidden;padding-bottom:30rpx;">
+  <form bindsubmit="submitClick">
+    <view class="information">
+      <view bindtap="choosePhoto" class="infor-item">
+        <label class="infor-name">
+          <text class="cor"></text>
+          <text class="c6 fs30">头像</text>
+        </label>
+        <view class="infor-inp">
+          <image class="bdr" mode="aspectFill" src="{{userImg}}" style="width:60rpx;height:60rpx;"></image>
+        </view>
+      </view>
+      <view class="infor-item">
+        <label class="infor-name">
+          <text class="cor">*</text>
+          <text class="c6 fs30">姓名</text>
+          
+        </label>
+        <view class="infor-inp">
+          <input class="fs26 c9" name="userName" placeholder="请输入姓名" value="{{user.u_bname}}"></input>
+        </view>
+      </view>
+      <view class="infor-item">
+        <label class="infor-name">
+          <!-- <text class="cor">*</text> -->
+          <text class="c6 fs30"></text>
+          
+        </label>
+        <view class="infor-inp">
+          请填写身份证上的真实姓名
+        </view>
+      </view>
+      <view class="infor-item">
+        <label class="infor-name">
+          <text class="cor">*</text>
+          <text class="c6 fs30">性别</text>
+        </label>
+        <view class="infor-inp">
+          <radio-group class="fs26 c9" name="userSex">
+            <radio bindtap="sex0Click" checked="true" class="fs26 c9" value="男">男</radio>
+            <radio bindtap="sex1Click" class="fs26 c9" value="女">女</radio>
+          </radio-group>
+        </view>
+      </view>
+      <view class="infor-item">
+        <label class="infor-name">
+          <text class="cor">*</text>
+          <text class="fs30 c6">出生日期</text>
+        </label>
+        <view class="infor-inp">
+          <picker bindchange="dateChange" end="{{end}}" mode="date" start="{{start}}">
+            <view class="fs26 c9">
+              {{userDate}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="infor-item">
+        <label class="infor-name">
+          <text class="cor">*</text>
+          <text class="c6 fs30">身份证号</text>
+        </label>
+        <view class="infor-inp">
+          <input class="fs26 c9" name="idCard" placeholder="请输入身份证号" value="{{user.u_idcard}}"></input>
+        </view>
+      </view>
+      <view class="infor-item">
+        <view class="infor-inp" style="height:auto;width:100%;margin-left:0rpx;font-size:28rpx">
+        身份证号与姓名需一致,如不一致将无法为您实名购买保险
+          <!-- <input class="fs26 c9" name="idCard" placeholder="请输入身份证号" value="{{user.u_idcard}}"></input> -->
+        </view>
+      </view>
+    </view>
+    <!-- <view class="information">
+      <view class="infor-item">
+        <label class="infor-name">
+          <text class="fs30 c6">教育</text>
+        </label>
+        <view class="infor-inp">
+          <radio-group name="userJiaoYu" wx:if="{{i==0}}">
+            <radio checked="true" class="fs26 c9" value="在读">在读</radio>
+            <radio class="fs26 c9" value="已毕业">已毕业</radio>
+          </radio-group>
+          <radio-group name="userJiaoYu" wx:if="{{i==1}}">
+            <radio class="fs26 c9" value="在读">在读</radio>
+            <radio checked="true" class="fs26 c9" value="已毕业">已毕业</radio>
+          </radio-group>
+        </view>
+      </view>
+      <view class="infor-item">
+        <label class="infor-name">
+          <text class="cor">*</text>
+          <text class="c6 fs30">就读学校</text>
+        </label>
+        <view class="infor-inp">
+          <input class="fs26 c9" name="u_school" placeholder="请输入就读学校(社会人员请填写社会人员)" value="{{user.u_shcool}}"></input>
+        </view>
+      </view>
+      <view class="infor-item">
+        <label class="infor-name">
+          
+          <text class="c6 fs30">就读专业</text>
+        </label>
+        <view class="infor-inp">
+          <input class="fs26 c9" name="userMajor" placeholder="请输入就读专业" value="{{user.u_zhuanye}}"></input>
+        </view>
+      </view>
+      <view class="infor-item">
+        <label class="infor-name">
+          <text class="c6 fs30">健康证明</text>
+        </label>
+        <view class="infor-inp">
+          <radio-group class="fs26 c9" name="userHealthy" wx:if="{{u_jiankang=='有'}}">
+            <radio bindtap="sex0Click" checked="true" class="fs26 c9" value="有">有</radio>
+            <radio bindtap="sex1Click" class="fs26 c9" value="无">无</radio>
+          </radio-group>
+          <radio-group class="fs26 c9" name="userHealthy" wx:if="{{u_jiankang=='无'}}">
+            <radio bindtap="sex0Click" class="fs26 c9" value="有">有</radio>
+            <radio bindtap="sex1Click" checked="true" class="fs26 c9" value="无">无</radio>
+          </radio-group>
+        </view>
+      </view>
+      <view class="infor-item">
+        <label class="infor-name">
+          <text class="c6 fs30">所在城市</text>
+        </label>
+        <view class="infor-inp">
+          <picker bindchange="bindRegionChange" customItem="{{customItem}}" mode="region" value="{{region}}">
+            <view class="fs26 c9" wx:if="{{region.length==0}}">
+              请选择所在城市
+            </view>
+            <view class="fs26 c9" wx:else>
+              {{region[0]}}，{{region[1]}}，{{region[2]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="infor-item">
+        <label class="infor-name">
+          <text class="fs30 c6">身高</text>
+        </label>
+        <view class="infor-inp">
+          <picker bindchange="indexChange" mode="selector" name="userHeight" range="{{array}}" value="{{userHeight}}">
+            <view class="fs26 c9">
+              {{userHeight}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="infor-item">
+        <label class="infor-name">
+          <text class="fs30 c6">邮箱</text>
+        </label>
+        <view class="infor-inp">
+          <input class="fs26 c9" name="userEmail" placeholder="请输入邮箱" value="{{user.u_email}}"></input>
+        </view>
+      </view>
+      <view class="infor-item">
+        <label class="infor-name">
+          <text class="fs30 c6">微信</text>
+        </label>
+        <view class="infor-inp">
+          <input bindblur="qqReg" class="fs26 c9" name="userQq" placeholder="请输入微信" value="{{user.u_qq}}"></input>
+        </view>
+      </view>
+    </view> -->
+    <view class="information">
+      <view class="infor-item">
+        <label class="infor-name">
+          <text class="cor">*</text>
+          <text class="fs30 c6">联系电话</text>
+        </label>
+        <view class="infor-inp df aic jcfe">
+          <view style="width:74%;display:inline-block">
+            <input bindinput="inputPhoneNum" class="fs26 c9" maxlength="11" name="telphone" placeholder="填写联系电话" style="width:100%" type="number" value="{{u_tel}}"></input>
+          </view>
+          <button bindgetphonenumber="getPhoneNumber" class="yanzhen ml10" openType="getPhoneNumber">获取手机号</button>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="introduce df fdc">
+      <label class="infor-introduce">
+        <text class="fs30 c6">自我介绍</text>
+      </label>
+      <view class="infor-textarea bsbb pl56 pr30">
+        <textarea bindinput="contentChange" class="fs26 c9 h120" focus="{{focusziwo}}" maxlength="140" name="userIntroduce" placeholder="例如：是否获得过奖学金；获得过哪些荣誉；参与过哪些活动等。" placeholderClass="zIndex" value="{{u_content}}" wx:if="{{u_contentss==1}}"></textarea>
+        <view bindtap="change" class="fs26 c9 h120" style="height:150px;line-height: 34rpx;" wx:if="{{u_contentss==0}}">{{user.u_content}}</view>
+      </view>
+      <view class="textarea-num fs26 c9">
+        <text>{{cursor}}/140</text>
+      </view>
+    </view>
+    <view class="infor-item" style="background:#fff;height:200rpx;margin:0;padding-left:30rpx;margin-top:15rpx;">
+      <label class="infor-name">
+        <text class="c6 fs30">有效证件</text>
+      </label>
+      <view class="infor-inp" style="height:200rpx;">
+        <image bindtap="choosePhotos" mode="aspectFill" src="{{xueshengzheng}}" style="width:180rpx;height:180rpx;margin-top:10rpx;"></image>
+      </view>
+    </view> -->
+
+    <view class="infor-item" style="text-align:center;margin-top:20rpx;">
+      <checkbox-group bindchange="checkboxChange">
+          <checkbox value="1" checked="checked" />同意<view bindtap="xieyi" style="width:auto;display:inline-block;color:#0600FF" >《用户协议》</view>
+      </checkbox-group>
+    </view>
+    <input hidden="true" name="openid" value="{{openid}}"></input>
+    <button class="bgc cf" formType="submit" wx:if="{{checked}}" >确定</button>
+    <button class="bgc gr" wx:if="{{!checked}}" style="background-color:grey;" >请勾选用户协议</button>
+  </form>
+</view>

@@ -1,0 +1,82 @@
+<view class="selectWorktime">
+  
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{worktime}}">
+    <view class="picker">
+      筛选工作时间
+    </view>
+  </picker>
+</view>
+<view class="bsbb p30 bdb2 df aic jcsb bgcf" wx:for="{{list}}" wx:key="unique">
+  <view class="df">
+    <view>
+      <image class="bdr" mode="aspectFill" src="{{item.thumb}}" style="width:128rpx;height:128rpx;"></image>
+    </view>
+    <view class="df fdc ml30">
+      <view>
+        <text class="fs34 c6">{{item.name}}</text>
+        <text class="fs22 c6 fw3 ml30">{{item.sex}}</text>
+        <text class="fs22 c6 fw3 ml20">{{item.age}}岁</text>
+      </view>
+      <view class="fs24 c6 mt15">学历：
+        <text class="fs24 c6 fw3">{{item.xueli}}</text>
+      </view>
+      <view class="fs24 c6 mt5">职位：
+        <text class="fs24 c6 fw3">{{item.zhiwei}}</text>
+      </view>
+      <view bindtap="callPhone" class="fs24 c6 mt5" data-phone="{{item.telphone}}" wx:if="{{state>1}}">电话：
+        <text class="fs24 c6 fw3">{{item.telphone}}</text>
+      </view>
+      <view class="fs24 c6 mt5">工作时间:
+        <text class="fs24 c6 fw3">{{item.worktime}}</text>
+      </view>
+      <view class="fs24 c6 mt5">报名时间：
+        <text class="fs24 c6 fw3">{{item.b_time}}</text>
+      </view>
+      <view class="fs24 c6 mt5" wx:if="{{state==5}}">结算金额：
+        <text class="fs24 c6 fw3">{{item.money}}元</text>
+      </view>
+    </view>
+  </view>
+  <view class="df fdc aic jcc" wx:if="{{state==2}}">
+    <view>
+      <form bindsubmit="Luyong" data-b_id="{{item.b_id}}" reportSubmit="true">
+        <button class="bgc cf fs24 btn-see" data-b_id="{{item.b_id}}" formType="submit" reportSubmit="true">录用</button>
+      </form>
+      <button bindtap="previewClick" class="bgcf c6 fs24 btn-see mt10" data-b_id="{{item.b_id}}" data-b_openid="{{item.b_openid}}" data-f_id="{{f_id}}">查看简历</button>
+      <form bindsubmit="Buluyong" data-b_id="{{item.b_id}}" reportSubmit="true">
+        <button class="bgc cf fs24 btn-see" data-b_id="{{item.b_id}}" formType="submit" style="background-color:#d1d1d1; margin-top:10rpx;">不录用</button>
+      </form>
+    </view>
+  </view>
+  <view class="fs30 c fw3" wx:if="{{state==3}}">
+    <view>
+      <button bindtap="qiandaoxinxi" class="bgcf c6 fs24 btn-see mt10" data-b_id="{{item.b_id}}" data-index="{{index}}" data-b_openid="{{item.b_openid}}" data-f_id="{{f_id}}">签到信息</button>
+      <button bindtap="daogang" class="bgc cf fs24 btn-see" data-b_id="{{item.b_id}}" data-index="{{index}}">确认到岗</button>
+
+      <button bindtap="wugong" class="bgc cf fs24 btn-see" data-b_id="{{item.b_id}}" data-index="{{index}}">误工</button>
+    </view>
+  </view>
+  <view class="fs30 c fw3" wx:if="{{state==4}}">
+    <view>
+      <button bindtap="jiesuan" class="bgc cf fs24 btn-see" data-b_id="{{item.b_id}}" data-b_mid="{{item.b_mid}}" data-openid="{{item.b_openid}}">签退</button>
+      <button bindtap="qiantuixinxi" class="bgcf c6 fs24 btn-see mt10" data-b_id="{{item.b_id}}" data-index="{{index}}" data-b_openid="{{item.b_openid}}" data-f_id="{{f_id}}">签退信息</button>
+    </view>
+  </view>
+</view>
+<my-bottom a=""></my-bottom>
+<view class="pb20"></view>
+<view bindtap="hideClick" catchtouchmove="remove" class="mask" wx:if="{{over}}"></view>
+<form bindsubmit="getMoney" wx:if="{{over}}">
+  <view class="jiesuan bdr20 df fdc aic jcc bsbb pt30 pb30">
+    <view class="w80 mt30">
+      <input bindinput="payMoney" class="bgc cf tac bdr50 fs26 w h60" name="money" placeholder="请输入结算金额" placeholderClass="cf" type="digit" value="{{values}}"></input>
+      <view class="fs22 c9 w df aic jcc mt10">需增加结算工资手续费:{{pay}}元</view>
+    </view>
+    <view class="mt20 df aic jcc">
+      <input hidden="true" name="b_id" value="{{b_id}}"></input>
+      <input hidden="true" name="b_mid" value="{{b_mid}}"></input>
+      <button class="c bdc comfire fs32 bdr50 tac" formType="submit" wx:if="{{submitbtn}}">确认</button>
+      <button disabled class="c bdc comfire fs32 bdr50 tac disableds" hoverClass="none" wx:else>确认</button>
+    </view>
+  </view>
+</form>

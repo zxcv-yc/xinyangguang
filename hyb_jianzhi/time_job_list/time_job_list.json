@@ -1,0 +1,12 @@
+{
+    "navigationBarBackgroundColor": "#ff644a",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "兼职",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": true, 
+    "usingComponents": {
+        "my-broadcast": "/component/my_broadcast/my_broadcast",
+        "my-sku-page": "/component/sku_page/sku_page",
+        "my-bottom": "/component/my_bottom/my_bottom"
+    }
+}

@@ -1,0 +1,14 @@
+<view class="mt20">
+    <form bindsubmit="subClick" reportSubmit="true">
+        <view class="pl30 pr30 fff">
+            <view class="fs30 pt50">请输入充值金额</view>
+            <view class="chongzhi pb50 pt30">
+                <text class="fs60 fw9">￥</text>
+                <input class="fs60 fw9" name="chongzhi"></input>
+            </view>
+        </view>
+        <view class="bsbb pl30 pr30 pb50 pt20 mt50">
+            <button class="bdr20 bgc cf fs30" formType="submit">确认</button>
+        </view>
+    </form>
+</view>

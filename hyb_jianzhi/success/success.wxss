@@ -1,0 +1,38 @@
+.su-img {
+    width: 100%;
+    height: 300rpx;
+    text-align: center;
+}
+
+.su-img image {
+    width: 200rpx;
+    height: 200rpx;
+    margin-top: 50rpx;
+}
+
+.con {
+    width: 560rpx;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.su-ti {
+    display: block;
+    width: 100%;
+    font-size: 34rpx;
+    margin: 50rpx 0;
+    color: #252525;
+}
+
+.su-con {
+    font-size: 26rpx;
+    color: #bfbfbf;
+}
+
+.su-btn {
+    width: 680rpx;
+    height: 86rpx;
+    line-height: 86rpx;
+    font-size: 28rpx;
+    margin-top: 50rpx;
+}

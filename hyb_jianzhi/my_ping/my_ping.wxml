@@ -1,0 +1,14 @@
+<block wx:if="{{list.length!=0}}">
+    <view class="bsbb pl30 pr30 pt30 pb30 mb20 bgcf" wx:for="{{list}}">
+        <view class="df aic jcc fs32 c6">{{item.p_jianzhiname}}</view>
+        <view class="fs28 c6 mt10">{{item.p_content}}</view>
+        <view class="fs22 c9 df jcfe mt10">{{item.p_time}}</view>
+        <view class="fs26 c6 mt10 df jcsb" wx:if="{{item.h_content!=''}}">
+            <view>
+    商家回复: {{item.h_content == null ? '暂无'  : item.h_content }}
+      </view>
+            <view class="fs22 c9">{{item.h_time == null ? '' : item.h_time}}</view>
+        </view>
+    </view>
+</block>
+<my-none none="{{none}}" wx:if="{{list.length==0||list==null}}"></my-none>
